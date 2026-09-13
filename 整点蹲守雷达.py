@@ -3,10 +3,10 @@
 """
 整点蹲守雷达（凌晨 0 点特殊 5 连采，秒级盯钟版）
 ================================================
-为什么需要它：GitHub 定时触发只精确到「分钟」且排队抖动 1~10 分钟，
-靠 cron 不可能卡住 0 点整。本脚本 23:50 被唤醒后**自己在进程里盯钟**，
+为什么需要它：GitHub 定时触发只精确到「分钟」且在高负载（尤其午夜）会排队延迟，
+靠 cron 不可能卡住 0 点整。本脚本 23:30 被唤醒后**自己在进程里盯钟**，
 GitHub 服务器的时钟是 NTP 同步的（毫秒级），从进程内部等待目标秒，
-等效于秒级定时任务。
+等效于秒级定时任务。唤醒提前到 23:30 是为吸收 GitHub 的排队抖动留缓冲。
 
 5 次采集分配（北京时间）：
   ① 23:58:50  轻量探测（4399 首页 API + OPPO 三个列表接口，约 20 秒）
@@ -162,32 +162,38 @@ def main():
 
     # ---- 目标时刻表（基于今天 23:58 之后的窗口）----
     base = start.replace(hour=23, minute=58, second=50, microsecond=0)
-    if start.hour >= 0 and start.hour < 23 and start.hour <= 1:
-        # 万一 0 点后才被唤醒（极端抖动）：窗口锚到当天 0 点
-        base = (start - timedelta(days=1)).replace(hour=23, minute=58, second=50, microsecond=0)
+    if base < start:
+        # GitHub 唤醒晚于窗口起点（极端抖动）：以当前时刻为基准顺延，保证流程仍能跑完（降级）
+        base = start
+        print("  ⚠️ 唤醒晚于 23:58:50，已降级为「立即顺延执行」", flush=True)
     t_probe1 = base
     t_probe2 = base + timedelta(seconds=40)            # 23:59:30
     t_probe3 = base + timedelta(seconds=75)            # 00:00:05
     t_full1 = base + timedelta(seconds=130)            # 00:01:00
     t_full2 = base + timedelta(seconds=400)            # 00:05:30
 
-    # ---- ①②③ 极限窗口三次轻量探测（过期的自动跳过）----
+    # ---- ①②③ 极限窗口三次轻量探测（过期的自动跳过，并记录实际命中偏差）----
     for i, t in enumerate((t_probe1, t_probe2, t_probe3), 1):
         if (t - now_cn()).total_seconds() > 0:
             sleep_until(t)
+        drift = (now_cn() - t).total_seconds()
+        print(f"  [探测{i}] 实际命中 {now_cn():%H:%M:%S}（目标 {t:%H:%M:%S}，偏差 {drift:+.1f}s）", flush=True)
+        if drift <= 60:
             probe(i)
         else:
-            print(f"  [探测{i}] 目标 {t:%H:%M:%S} 已过，跳过", flush=True)
+            print(f"  [探测{i}] 偏差>60s，跳过探测", flush=True)
 
     # ---- ④ 完整采集 #1 ----
     if (t_full1 - now_cn()).total_seconds() > 0:
         sleep_until(t_full1)
+    print(f"  [完整#1] 实际命中 {now_cn():%H:%M:%S}（目标 {t_full1:%H:%M:%S}）", flush=True)
     run_script("run_all_channels.py", "完整采集 #1（00:01 三渠道全量）")
     run_script("radar_board_gen.py", "看板生成 #1")
 
     # ---- ⑤ 完整采集 #2（确认补漏）----
     if (t_full2 - now_cn()).total_seconds() > 0:
         sleep_until(t_full2)
+    print(f"  [完整#2] 实际命中 {now_cn():%H:%M:%S}（目标 {t_full2:%H:%M:%S}）", flush=True)
     run_script("run_all_channels.py", "完整采集 #2（00:05 确认补漏）")
     run_script("radar_board_gen.py", "看板生成 #2（最终版）")
 
