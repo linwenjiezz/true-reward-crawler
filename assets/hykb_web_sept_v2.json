@@ -1,47 +1,14 @@
 [
  {
-  "game": "和平精英",
-  "title": "预约和平精英新版本，领快爆专属Q币",
-  "url": "https://act.3839.com/n/hykb_hd/cjm20260910ea444n/index.php?imm=0",
-  "desc": "",
-  "src": "fuli",
-  "start": "2026-09-12T00:00:00+08:00",
-  "end": "2026-09-23T00:00:00+08:00",
-  "kind": "real",
-  "reward": "Q币"
- },
- {
-  "game": "使命召唤手游",
-  "title": "新人注册领快爆专属红包，抽京东卡好礼",
-  "url": "https://act.3839.com/n/hykb_hd/codm20260831gf431n/index.php?imm=0",
-  "desc": "",
-  "src": "fuli",
-  "start": "2026-09-10T00:00:00+08:00",
-  "end": "2026-11-09T00:00:00+08:00",
-  "kind": "real",
-  "reward": "现金"
- },
- {
   "game": "三角洲行动",
-  "title": "三角洲行动签到祈愿抽G3紧急戒备皮肤",
-  "url": "https://huodong3.3839.com/n/hykb/newsign2/index.php?imm=0&hd_id=3728&gid=151743",
+  "title": "参与赢刀皮捆绑包、专属枪皮",
+  "url": "https://act.3839.com/n/hykb_hd/dfm20260901fw435n/index.php?imm=0",
   "desc": "",
   "src": "fuli",
   "start": "2026-09-04T00:00:00+08:00",
-  "end": "2026-09-30T00:00:00+08:00",
-  "kind": "noise",
-  "reward": null
- },
- {
-  "game": "穿越火线枪战王者",
-  "title": "【第66期】每日签到领穿越火线手游福利",
-  "url": "https://huodong3.3839.com/n/hykb/newsign2/index.php?imm=0&hd_id=3641&gid=63681",
-  "desc": "",
-  "src": "fuli",
-  "start": "2026-08-06T00:00:00+08:00",
-  "end": "2026-09-17T00:00:00+08:00",
-  "kind": "noise",
-  "reward": null
+  "end": "2026-10-04T00:00:00+08:00",
+  "kind": "real",
+  "reward": "Q币"
  },
  {
   "game": "和平精英",
@@ -56,14 +23,36 @@
  },
  {
   "game": "三角洲行动",
-  "title": "参与赢刀皮捆绑包、专属枪皮",
-  "url": "https://act.3839.com/n/hykb_hd/dfm20260901fw435n/index.php?imm=0",
+  "title": "三角洲行动签到祈愿抽G3紧急戒备皮肤",
+  "url": "https://huodong3.3839.com/n/hykb/newsign2/index.php?imm=0&hd_id=3728&gid=151743",
   "desc": "",
   "src": "fuli",
   "start": "2026-09-04T00:00:00+08:00",
-  "end": "2026-10-04T00:00:00+08:00",
+  "end": "2026-09-30T00:00:00+08:00",
+  "kind": "noise",
+  "reward": null
+ },
+ {
+  "game": "使命召唤手游",
+  "title": "新人注册领快爆专属红包，抽京东卡好礼",
+  "url": "https://act.3839.com/n/hykb_hd/codm20260831gf431n/index.php?imm=0",
+  "desc": "",
+  "src": "fuli",
+  "start": "2026-09-10T00:00:00+08:00",
+  "end": "2026-11-09T00:00:00+08:00",
   "kind": "real",
-  "reward": "Q币"
+  "reward": "现金"
+ },
+ {
+  "game": "穿越火线枪战王者",
+  "title": "【第66期】每日签到领穿越火线手游福利",
+  "url": "https://huodong3.3839.com/n/hykb/newsign2/index.php?imm=0&hd_id=3641&gid=63681",
+  "desc": "",
+  "src": "fuli",
+  "start": "2026-08-06T00:00:00+08:00",
+  "end": "2026-09-17T00:00:00+08:00",
+  "kind": "noise",
+  "reward": null
  },
  {
   "game": "王者荣耀",
@@ -88,35 +77,13 @@
   "reward": "现金"
  },
  {
-  "game": "王者万象棋",
-  "title": "王者万象棋首发签到抽传说棋盘皮肤",
-  "url": "https://huodong3.3839.com/n/hykb/newsign2/index.php?imm=0&hd_id=3736",
+  "game": "王者荣耀",
+  "title": "【第19期】王者荣耀每日签到福利",
+  "url": "https://huodong3.3839.com/n/hykb/newsign2/index.php?imm=0&hd_id=3697&gid=60881",
   "desc": "",
   "src": "fuli",
-  "start": "2026-09-10T00:00:00+08:00",
-  "end": "2026-10-10T00:00:00+08:00",
-  "kind": "noise",
-  "reward": null
- },
- {
-  "game": "王者万象棋",
-  "title": "报名参与星芒万象杯瓜分千元Q币！",
-  "url": "https://huodong3.3839.com/n/hykb/shuiyousai2/yxss.php?comm_id=12&imm=0",
-  "desc": "",
-  "src": "fuli",
-  "start": "2026-09-10T00:00:00+08:00",
-  "end": "2026-09-20T00:00:00+08:00",
-  "kind": "noise",
-  "reward": null
- },
- {
-  "game": "王者万象棋",
-  "title": "参与《王者万象棋》答疑活动赢百元Q币",
-  "url": "https://act.3839.com/n/hykb/qa_activity/index.php?comm_id=22&imm=0",
-  "desc": "",
-  "src": "fuli",
-  "start": "2026-09-08T00:00:00+08:00",
-  "end": "2026-10-12T00:00:00+08:00",
+  "start": "2026-09-01T00:00:00+08:00",
+  "end": "2026-09-30T00:00:00+08:00",
   "kind": "noise",
   "reward": null
  },
@@ -132,13 +99,24 @@
   "reward": null
  },
  {
-  "game": "王者荣耀",
-  "title": "【第19期】王者荣耀每日签到福利",
-  "url": "https://huodong3.3839.com/n/hykb/newsign2/index.php?imm=0&hd_id=3697&gid=60881",
+  "game": "王者万象棋",
+  "title": "报名参与星芒万象杯瓜分千元Q币！",
+  "url": "https://huodong3.3839.com/n/hykb/shuiyousai2/yxss.php?comm_id=12&imm=0",
   "desc": "",
   "src": "fuli",
-  "start": "2026-09-01T00:00:00+08:00",
-  "end": "2026-09-30T00:00:00+08:00",
+  "start": "2026-09-10T00:00:00+08:00",
+  "end": "2026-09-20T00:00:00+08:00",
+  "kind": "noise",
+  "reward": null
+ },
+ {
+  "game": "王者荣耀",
+  "title": "参与即领王者荣耀金色ACE头像框",
+  "url": "https://act.3839.com/n/hykb_hd/yxzj2026081823n425/index.php?imm=0",
+  "desc": "",
+  "src": "fuli",
+  "start": "2026-08-19T00:00:00+08:00",
+  "end": "2026-09-09T00:00:00+08:00",
   "kind": "noise",
   "reward": null
  },
@@ -154,13 +132,46 @@
   "reward": "Q币"
  },
  {
-  "game": "王者荣耀",
-  "title": "参与即领王者荣耀金色ACE头像框",
-  "url": "https://act.3839.com/n/hykb_hd/yxzj2026081823n425/index.php?imm=0",
+  "game": "王者万象棋",
+  "title": "王者万象棋首发签到抽传说棋盘皮肤",
+  "url": "https://huodong3.3839.com/n/hykb/newsign2/index.php?imm=0&hd_id=3736",
   "desc": "",
   "src": "fuli",
-  "start": "2026-08-19T00:00:00+08:00",
-  "end": "2026-09-09T00:00:00+08:00",
+  "start": "2026-09-10T00:00:00+08:00",
+  "end": "2026-10-10T00:00:00+08:00",
+  "kind": "noise",
+  "reward": null
+ },
+ {
+  "game": "和平精英",
+  "title": "预约和平精英新版本，领快爆专属Q币",
+  "url": "https://act.3839.com/n/hykb_hd/cjm20260910ea444n/index.php?imm=0",
+  "desc": "",
+  "src": "fuli",
+  "start": "2026-09-12T00:00:00+08:00",
+  "end": "2026-09-23T00:00:00+08:00",
+  "kind": "real",
+  "reward": "Q币"
+ },
+ {
+  "game": "王者万象棋",
+  "title": "参与《王者万象棋》答疑活动赢百元Q币",
+  "url": "https://act.3839.com/n/hykb/qa_activity/index.php?comm_id=22&imm=0",
+  "desc": "",
+  "src": "fuli",
+  "start": "2026-09-08T00:00:00+08:00",
+  "end": "2026-10-12T00:00:00+08:00",
+  "kind": "noise",
+  "reward": null
+ },
+ {
+  "game": "王者万象棋",
+  "title": "预约赢王者传说皮肤、棋手3选1宝箱",
+  "url": "https://act.3839.com/n/hykb/farmcard2/index.php?imm=1",
+  "desc": "",
+  "src": "fuli",
+  "start": "2026-08-12T00:00:00+08:00",
+  "end": "2026-09-07T00:00:00+08:00",
   "kind": "noise",
   "reward": null
  },
@@ -171,17 +182,6 @@
   "desc": "",
   "src": "fuli",
   "start": "2026-08-27T00:00:00+08:00",
-  "end": "2026-09-07T00:00:00+08:00",
-  "kind": "noise",
-  "reward": null
- },
- {
-  "game": "王者万象棋",
-  "title": "预约赢大疆Pocket3、王者传说皮肤",
-  "url": "https://act.3839.com/n/hykb/farmcard3/index.php?imm=0",
-  "desc": "",
-  "src": "fuli",
-  "start": "2026-08-20T00:00:00+08:00",
   "end": "2026-09-07T00:00:00+08:00",
   "kind": "noise",
   "reward": null
@@ -199,14 +199,25 @@
  },
  {
   "game": "王者万象棋",
-  "title": "定档9月10日上线，预约暴击888Q币",
-  "url": "https://act.3839.com/n/hykb_hd/yxzj202804ydd/index.php?imm=0",
+  "title": "预约赢大疆Pocket3、王者传说皮肤",
+  "url": "https://act.3839.com/n/hykb/farmcard3/index.php?imm=0",
   "desc": "",
   "src": "fuli",
-  "start": "2026-08-07T00:00:00+08:00",
-  "end": "2026-09-08T00:00:00+08:00",
-  "kind": "real",
-  "reward": "Q币"
+  "start": "2026-08-20T00:00:00+08:00",
+  "end": "2026-09-07T00:00:00+08:00",
+  "kind": "noise",
+  "reward": null
+ },
+ {
+  "game": "三角洲行动",
+  "title": "领王者亲密玫瑰、三角洲战备物流凭证",
+  "url": "https://act.3839.com/n/hykb/20260813wzwxq_tlk/index.php?imm=0",
+  "desc": "",
+  "src": "fuli",
+  "start": "2026-08-28T00:00:00+08:00",
+  "end": "2026-09-07T00:00:00+08:00",
+  "kind": "noise",
+  "reward": null
  },
  {
   "game": "王者万象棋",
@@ -221,6 +232,17 @@
  },
  {
   "game": "王者万象棋",
+  "title": "定档9月10日上线，预约暴击888Q币",
+  "url": "https://act.3839.com/n/hykb_hd/yxzj202804ydd/index.php?imm=0",
+  "desc": "",
+  "src": "fuli",
+  "start": "2026-08-07T00:00:00+08:00",
+  "end": "2026-09-08T00:00:00+08:00",
+  "kind": "real",
+  "reward": "Q币"
+ },
+ {
+  "game": "王者万象棋",
   "title": "赢PS5游戏机、海量王者皮肤",
   "url": "https://act.3839.com/n/hykb/20260825wzwxq_tlk/index.php",
   "desc": "",
@@ -229,17 +251,6 @@
   "end": "2026-09-07T00:00:00+08:00",
   "kind": "real",
   "reward": "实物硬件"
- },
- {
-  "game": "洛克王国：世界",
-  "title": "完成任务赢炫彩蛋、红米平板等好礼",
-  "url": "https://act.3839.com/n/hykb_hd/rocom20260908hw442d/index.php?imm=0",
-  "desc": "",
-  "src": "fuli",
-  "start": "2026-09-10T00:00:00+08:00",
-  "end": "2026-11-04T00:00:00+08:00",
-  "kind": "real",
-  "reward": "Q币"
  },
  {
   "game": "洛克王国：世界",
@@ -276,25 +287,25 @@
  },
  {
   "game": "洛克王国：世界",
-  "title": "参与最强爆友挑战赢百元Q币！",
-  "url": "https://huodong3.3839.com/n/hykb/zqby3/index4.php?comm_id=232&imm=0",
+  "title": "与友组队，共领礼包好礼",
+  "url": "https://act.3839.com/n/hykb_hd/lkwgjj20260803qe415/index.php?imm=0",
   "desc": "",
   "src": "fuli",
-  "start": "2026-08-13T00:00:00+08:00",
-  "end": "2026-09-13T00:00:00+08:00",
+  "start": "2026-08-06T00:00:00+08:00",
+  "end": "2026-09-09T00:00:00+08:00",
   "kind": "real",
   "reward": "Q币"
  },
  {
-  "game": "三角洲行动",
-  "title": "领王者亲密玫瑰、三角洲战备物流凭证",
-  "url": "https://act.3839.com/n/hykb/20260813wzwxq_tlk/index.php?imm=0",
+  "game": "洛克王国：世界",
+  "title": "完成任务赢炫彩蛋、红米平板等好礼",
+  "url": "https://act.3839.com/n/hykb_hd/rocom20260908hw442d/index.php?imm=0",
   "desc": "",
   "src": "fuli",
-  "start": "2026-08-28T00:00:00+08:00",
-  "end": "2026-09-07T00:00:00+08:00",
-  "kind": "noise",
-  "reward": null
+  "start": "2026-09-10T00:00:00+08:00",
+  "end": "2026-11-04T00:00:00+08:00",
+  "kind": "real",
+  "reward": "Q币"
  },
  {
   "game": "洛克王国：世界",
@@ -308,24 +319,13 @@
   "reward": null
  },
  {
-  "game": "王者万象棋",
-  "title": "预约赢王者传说皮肤、棋手3选1宝箱",
-  "url": "https://act.3839.com/n/hykb/farmcard2/index.php?imm=1",
+  "game": "洛克王国：世界",
+  "title": "参与最强爆友挑战赢百元Q币！",
+  "url": "https://huodong3.3839.com/n/hykb/zqby3/index4.php?comm_id=232&imm=0",
   "desc": "",
   "src": "fuli",
-  "start": "2026-08-12T00:00:00+08:00",
-  "end": "2026-09-07T00:00:00+08:00",
-  "kind": "noise",
-  "reward": null
- },
- {
-  "game": "金铲铲之战",
-  "title": "完成任务抽「花语夜阑」棋盘",
-  "url": "https://act.3839.com/n/hykb_hd/jk20260812n423/index.php?imm=0",
-  "desc": "",
-  "src": "fuli",
-  "start": "2026-08-20T00:00:00+08:00",
-  "end": "2026-09-20T00:00:00+08:00",
+  "start": "2026-08-13T00:00:00+08:00",
+  "end": "2026-09-13T00:00:00+08:00",
   "kind": "real",
   "reward": "Q币"
  },
@@ -341,13 +341,35 @@
   "reward": "Q币"
  },
  {
-  "game": "洛克王国：世界",
-  "title": "与友组队，共领礼包好礼",
-  "url": "https://act.3839.com/n/hykb_hd/lkwgjj20260803qe415/index.php?imm=0",
+  "game": "金铲铲之战",
+  "title": "完成任务抽「花语夜阑」棋盘",
+  "url": "https://act.3839.com/n/hykb_hd/jk20260812n423/index.php?imm=0",
   "desc": "",
   "src": "fuli",
-  "start": "2026-08-06T00:00:00+08:00",
-  "end": "2026-09-09T00:00:00+08:00",
+  "start": "2026-08-20T00:00:00+08:00",
+  "end": "2026-09-20T00:00:00+08:00",
+  "kind": "real",
+  "reward": "Q币"
+ },
+ {
+  "game": "无畏契约",
+  "title": "参与最速击杀挑战赢游戏周边等好礼！",
+  "url": "https://huodong3.3839.com/n/hykb/zqby3/index4.php?comm_id=233&imm=0",
+  "desc": "",
+  "src": "fuli",
+  "start": "2026-08-16T00:00:00+08:00",
+  "end": "2026-09-13T00:00:00+08:00",
+  "kind": "noise",
+  "reward": null
+ },
+ {
+  "game": "无畏契约",
+  "title": "回瓦手秀，领1000赛季币&限时枪皮",
+  "url": "https://act.3839.com/n/hykb_hd/codev20260831fr434b/index.php?imm=0",
+  "desc": "",
+  "src": "fuli",
+  "start": "2026-09-04T00:00:00+08:00",
+  "end": "2026-09-30T00:00:00+08:00",
   "kind": "real",
   "reward": "Q币"
  },
@@ -374,28 +396,6 @@
   "reward": "Q币"
  },
  {
-  "game": "妄想山海",
-  "title": "注册回归&邀请好友，得专属装扮",
-  "url": "https://act.3839.com/n/hykb_hd/shanhai2026810n420/index.php?imm=0",
-  "desc": "",
-  "src": "fuli",
-  "start": "2026-08-12T00:00:00+08:00",
-  "end": "2026-09-13T00:00:00+08:00",
-  "kind": "real",
-  "reward": "Q币"
- },
- {
-  "game": "无畏契约",
-  "title": "回瓦手秀，领1000赛季币&限时枪皮",
-  "url": "https://act.3839.com/n/hykb_hd/codev20260831fr434b/index.php?imm=0",
-  "desc": "",
-  "src": "fuli",
-  "start": "2026-09-04T00:00:00+08:00",
-  "end": "2026-09-30T00:00:00+08:00",
-  "kind": "real",
-  "reward": "Q币"
- },
- {
   "game": "QQ飞车",
   "title": "年中盛典福利，赢S-霆光、888Q币",
   "url": "https://act.3839.com/n/hykb_hd/speedm20260720tw399n/index.php?imm=0",
@@ -418,17 +418,6 @@
   "reward": "Q币"
  },
  {
-  "game": "无畏契约",
-  "title": "参与最速击杀挑战赢游戏周边等好礼！",
-  "url": "https://huodong3.3839.com/n/hykb/zqby3/index4.php?comm_id=233&imm=0",
-  "desc": "",
-  "src": "fuli",
-  "start": "2026-08-16T00:00:00+08:00",
-  "end": "2026-09-13T00:00:00+08:00",
-  "kind": "noise",
-  "reward": null
- },
- {
   "game": "妄想山海",
   "title": "【第68期】妄想山海签到抽嘲风·幽夜之鳞",
   "url": "https://huodong3.3839.com/n/hykb/newsign2/index.php?imm=0&hd_id=3711&gid=118069",
@@ -438,6 +427,17 @@
   "end": "2026-09-30T00:00:00+08:00",
   "kind": "noise",
   "reward": null
+ },
+ {
+  "game": "妄想山海",
+  "title": "注册回归&邀请好友，得专属装扮",
+  "url": "https://act.3839.com/n/hykb_hd/shanhai2026810n420/index.php?imm=0",
+  "desc": "",
+  "src": "fuli",
+  "start": "2026-08-12T00:00:00+08:00",
+  "end": "2026-09-13T00:00:00+08:00",
+  "kind": "real",
+  "reward": "Q币"
  },
  {
   "game": "逆战：未来",
@@ -451,13 +451,13 @@
   "reward": null
  },
  {
-  "game": "使命召唤手游",
-  "title": "登录",
-  "url": "https://act.3839.com/n/hykb_hd/tokenlink/codm/index.php?immgj=1",
+  "game": "和平精英",
+  "title": "好游快爆2024年度游戏大赏_好游快爆APP",
+  "url": "https://act.3839.com/n/hykb/2024ndds2/wap.php?imm=0",
   "desc": "",
   "src": "zone",
-  "start": null,
-  "end": null,
+  "start": "2024-12-12T00:00:00+08:00",
+  "end": "2024-12-23T00:00:00+08:00",
   "kind": "noise",
   "reward": null
  },
@@ -473,6 +473,17 @@
   "reward": "实物硬件"
  },
  {
+  "game": "使命召唤手游",
+  "title": "登录",
+  "url": "https://act.3839.com/n/hykb_hd/tokenlink/codm/index.php?immgj=1",
+  "desc": "",
+  "src": "zone",
+  "start": null,
+  "end": null,
+  "kind": "noise",
+  "reward": null
+ },
+ {
   "game": "和平精英",
   "title": "2025年度游戏大赏",
   "url": "https://act.3839.com/n/hykb/2025ndds2/wap.php?imm=0",
@@ -482,28 +493,6 @@
   "end": null,
   "kind": "real",
   "reward": "实物硬件"
- },
- {
-  "game": "和平精英",
-  "title": "好游快爆2024年度游戏大赏_好游快爆APP",
-  "url": "https://act.3839.com/n/hykb/2024ndds2/wap.php?imm=0",
-  "desc": "",
-  "src": "zone",
-  "start": "2024-12-12T00:00:00+08:00",
-  "end": "2024-12-23T00:00:00+08:00",
-  "kind": "noise",
-  "reward": null
- },
- {
-  "game": "王者万象棋",
-  "title": "三角洲行动 《王者万象棋》天美联动",
-  "url": "https://act.3839.com/n/hykb/20260902wzwxq_tlk/index.php?imm=0",
-  "desc": "",
-  "src": "zone",
-  "start": "2026-09-10T07:00:00+08:00",
-  "end": "2026-10-10T23:59:00+08:00",
-  "kind": "noise",
-  "reward": null
  },
  {
   "game": "使命召唤手游",
@@ -524,6 +513,17 @@
   "src": "zone",
   "start": null,
   "end": null,
+  "kind": "noise",
+  "reward": null
+ },
+ {
+  "game": "王者万象棋",
+  "title": "三角洲行动 《王者万象棋》天美联动",
+  "url": "https://act.3839.com/n/hykb/20260902wzwxq_tlk/index.php?imm=0",
+  "desc": "",
+  "src": "zone",
+  "start": "2026-09-10T07:00:00+08:00",
+  "end": "2026-10-10T23:59:00+08:00",
   "kind": "noise",
   "reward": null
  },
@@ -551,8 +551,8 @@
  },
  {
   "game": "洛克王国：世界",
-  "title": "好游快爆种草计划，种草好友享多重福利-好游快爆APP",
-  "url": "https://huodong3.3839.com/n/hykb/friend/index.php?imm=0&ad_id=193",
+  "title": "2025年度游戏大赏",
+  "url": "https://act.3839.com/n/hykb/2025ndds3/wap.php?imm=0",
   "desc": "",
   "src": "zone",
   "start": null,
@@ -562,8 +562,8 @@
  },
  {
   "game": "洛克王国：世界",
-  "title": "2025年度游戏大赏",
-  "url": "https://act.3839.com/n/hykb/2025ndds3/wap.php?imm=0",
+  "title": "好游快爆种草计划，种草好友享多重福利-好游快爆APP",
+  "url": "https://huodong3.3839.com/n/hykb/friend/index.php?imm=0&ad_id=193",
   "desc": "",
   "src": "zone",
   "start": null,
@@ -605,17 +605,6 @@
   "reward": "Q币"
  },
  {
-  "game": "失控进化",
-  "title": "失控进化 快爆专属福利",
-  "url": "https://act.3839.com/n/hykb_hd/rm20260904vt439n/index.php?imm=0",
-  "desc": "",
-  "src": "zone",
-  "start": "2026-09-10T10:00:00+08:00",
-  "end": "2026-10-15T23:59:00+08:00",
-  "kind": "real",
-  "reward": "Q币"
- },
- {
   "game": "逆战：未来",
   "title": "逆战：未来新赛季福利活动",
   "url": "https://act.3839.com/n/hykb_hd/nzm20260630pn381b/index.php?imm=0",
@@ -623,6 +612,17 @@
   "src": "zone",
   "start": "2026-07-02T10:00:00+08:00",
   "end": "2026-09-21T23:59:00+08:00",
+  "kind": "real",
+  "reward": "Q币"
+ },
+ {
+  "game": "失控进化",
+  "title": "失控进化 快爆专属福利",
+  "url": "https://act.3839.com/n/hykb_hd/rm20260904vt439n/index.php?imm=0",
+  "desc": "",
+  "src": "zone",
+  "start": "2026-09-10T10:00:00+08:00",
+  "end": "2026-10-15T23:59:00+08:00",
   "kind": "real",
   "reward": "Q币"
  }
