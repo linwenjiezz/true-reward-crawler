@@ -28,8 +28,11 @@ import json, os, re, sys, html as H, urllib.request, gzip
 from datetime import datetime, timezone, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # 依赖模块与本脚本同目录（可移植）
-os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 输出文件固定落在脚本目录
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, _SCRIPT_DIR)  # 依赖模块与本脚本同目录（可移植）
+_DATA = os.environ.get("RADAR_DATA", _SCRIPT_DIR)  # 手机端→可写外部存储；桌面→脚本目录
+os.makedirs(_DATA, exist_ok=True)
+os.chdir(_DATA)  # 输出文件固定落在数据目录
 import config
 import oppo_feed
 from reward_classify import reward_kind, matched_noise

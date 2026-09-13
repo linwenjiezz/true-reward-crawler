@@ -14,6 +14,10 @@ android {
         versionCode 2
         versionName "2.0"
 
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"   // Chaquopy 要求显式声明 ABI
+        }
+
         python {
             version "3.11"   // Chaquopy 内嵌的 Python 版本
         }

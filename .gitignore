@@ -1,3 +1,23 @@
 __pycache__/
 *.pyc
 assets/_midnight_probe.log
+
+# Android Studio / Gradle 构建产物（radar 手机端）
+*.iml
+.gradle/
+.idea/
+local.properties
+build/
+app/build/
+app/.cxx/
+app/.externalNativeBuild/
+captures/
+
+# 构建输出
+*.apk
+*.aab
+*.imy
+*.so
+*.dex
+*.class
+*.log

@@ -20,11 +20,13 @@
 import hashlib
 import html
 import json
+import os
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+_SCRIPT_DIR = Path(__file__).parent
+ROOT = Path(os.environ.get("RADAR_DATA", str(_SCRIPT_DIR)))  # 手机端→可写外部存储；桌面→脚本目录
 ANCHOR_MONTH = "2026-09-01"
 ANCHOR_DT = datetime(2026, 9, 1, 0, 0, 0, tzinfo=timezone(timedelta(hours=8)))
 NOW = datetime.now(tz=timezone(timedelta(hours=8)))
