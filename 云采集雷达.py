@@ -31,6 +31,22 @@ def run_step(name, script):
 
 
 def main():
+    auto = "--auto" in sys.argv
+
+    # --auto 模式：北京时间 23 点被唤醒 → 切入 0 点蹲守（5 连采，秒级盯钟）
+    if auto:
+        from datetime import datetime, timedelta, timezone
+        bj = datetime.now(timezone(timedelta(hours=8)))
+        print(f"[auto] 当前北京时间 {bj:%H:%M}，仓库分支判定…", flush=True)
+        if bj.hour == 23:
+            print("[auto] 命中 23 点 → 进入 0 点蹲守模式\n", flush=True)
+            run_step("阶段零：0 点蹲守（3 探测 + 2 完整采集）", "../整点蹲守雷达.py")
+            board = os.path.join(ASSETS, "radar_board.html")
+            size = os.path.getsize(board) if os.path.isfile(board) else 0
+            print(f"\n🎉 蹲守采集完成：radar_board.html {size // 1024} KB")
+            return
+        print("[auto] 非 23 点 → 常规每小时巡逻\n", flush=True)
+
     print("=" * 54)
     print("云采集：三渠道 → 雷达看板（GitHub Actions）")
     print("=" * 54, flush=True)
