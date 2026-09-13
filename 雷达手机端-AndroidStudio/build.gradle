@@ -1,4 +1,6 @@
-// 项目级 build.gradle —— AGP 8.2.2（Android Studio Hedgehog 及以上自动适配）
+// 项目级 build.gradle
+// AGP 8.2.2 + Chaquopy 15.0.1（Android 内嵌 Python，兼容 AGP 8.x）
 plugins {
     id 'com.android.application' version '8.2.2' apply false
+    id 'com.chaquo.python' version '15.0.1' apply false
 }
