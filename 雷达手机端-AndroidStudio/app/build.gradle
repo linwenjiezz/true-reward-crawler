@@ -1,0 +1,30 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.linwe.gameradar'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.linwe.gameradar"
+        minSdk 24          // 覆盖 Android 7.0 及以上
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+// 零第三方依赖：只用 Android 自带 API，同步最快、最不容易出环境问题
+dependencies {}
