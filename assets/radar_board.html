@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活动雷达 · 三渠道真奖励</title>
+    <style>
+        :root {
+            --bg: #0d0f13; --surface: #11141a; --line: #1e222b; --line-2: #171a21;
+            --text: #e8eaf0; --text-2: #c9cedb; --text-3: #6b7385; --text-4: #4a5060;
+            --border: #2a2f3a; --purple: #B9AAF0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.55;
+            padding: 20px 16px 60px; min-height: 100vh;
+        }
+        .wrap { max-width: 880px; margin: 0 auto; }
+        .page-head { display:flex; align-items:baseline; gap:10px; }
+        h1 { font-size: 1.15rem; font-weight: 600; letter-spacing: 0.01em; }
+        .sub { color: var(--text-4); font-size: 0.75rem; margin-left: auto; }
+        .hr { height: 1px; background: var(--line); margin: 12px 0 14px; }
+
+        /* ① 速报 */
+        .flash-title { color: var(--purple); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 6px; }
+        .flash-title.flash-empty { color: var(--text-4); letter-spacing: 0; }
+        #flash-more {
+            display:block; width:100%; margin-top:8px; padding:7px 0;
+            background:none; border:1px dashed var(--border); border-radius:8px;
+            color: var(--text-3); font-size:0.78rem; cursor:pointer;
+        }
+        #flash-more:hover { color: var(--text-2); border-color: var(--text-4); }
+
+        /* ② 吸顶工具栏 */
+        .toolbar {
+            position: sticky; top: 0; z-index: 50;
+            background: var(--surface); border: 1px solid #22262f; border-radius: 10px;
+            padding: 9px 10px; margin: 16px 0 6px;
+        }
+        .tb-row1 { display:flex; gap:8px; margin-bottom:8px; }
+        #q {
+            flex:1; background:none; border:1px solid var(--border); border-radius:8px;
+            color: var(--text); font-size:0.85rem; padding:7px 12px; outline:none;
+        }
+        #q:focus { border-color: var(--purple); }
+        #q::placeholder { color: var(--text-4); }
+        .tb-row2 { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+        .ch-tab {
+            background:none; border:none; cursor:pointer; font-size:0.82rem;
+            color: var(--text-3); padding:2px 0 4px; border-bottom:2px solid transparent;
+        }
+        .ch-tab.active { border-bottom-color: currentColor; }
+        .ch-tab:hover { color: var(--text-2); }
+        .fresh-toggle { margin-left:auto; display:flex; align-items:center; gap:6px; color:var(--text-3); font-size:0.8rem; cursor:pointer; }
+        .fresh-toggle input { accent-color: var(--purple); }
+
+        /* ③ 分区清单 */
+        .game-sec { margin-top: 14px; }
+        .game-sec.hidden, .ch-group.hidden, .row.hidden { display: none; }
+        .sec-head { display:flex; align-items:center; gap:9px; padding:8px 0 6px; cursor:pointer; user-select:none; }
+        .sec-name { font-size: 1rem; font-weight: 600; }
+        .sec-cnt { color: var(--text-4); font-size: 0.78rem; }
+        .new-t1 {
+            color: var(--text); font-size: 0.68rem;
+            background: rgba(255,255,255,.09); padding: 1px 8px; border-radius: 5px;
+        }
+        .sec-toggle { margin-left:auto; color: var(--text-4); font-size: 0.72rem; }
+        .game-sec.collapsed:not(.search-open) .sec-body { display: none; }
+        .game-sec.collapsed .sec-toggle::after { content: ""; }
+        .game-sec.collapsed .sec-toggle { color: var(--text-4); }
+
+        .ch-group { border-left: 1px solid var(--line); margin-left: 3px; }
+        .ch-label { font-size: 0.75rem; padding: 7px 0 1px 14px; }
+        .ch-cnt { color: var(--text-4); font-size: 0.7rem; }
+
+        .row {
+            display:flex; align-items:center; gap:10px;
+            padding: 8px 0 8px 14px; border-bottom: 1px solid #14161c;
+        }
+        .flash-row { padding: 8px 0; border-bottom: 1px solid var(--line-2); }
+        .ch-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+        .row-game { font-weight:600; font-size:0.88rem; flex-shrink:0; }
+        .row-title { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+        .row-title-text { color: var(--text-2); font-size: 0.86rem; }
+        .row-times { flex-shrink:0; font-size:0.8rem; font-variant-numeric: tabular-nums; }
+        .t0v { color: var(--purple); }
+        .t1v { color: var(--text-2); }
+        .sep { color: var(--text-4); margin: 0 4px; }
+        .row-act { flex-shrink:0; display:flex; gap:2px; opacity:.5; }
+        .row:hover .row-act { opacity:1; }
+        .mini-copy, .mini-open {
+            background:none; border:none; color:var(--text-3); cursor:pointer;
+            font-size:0.85rem; padding:2px 5px; text-decoration:none; border-radius:5px;
+        }
+        .mini-copy:hover, .mini-open:hover { color:var(--text); background:rgba(255,255,255,.06); }
+        mark.hl { background: rgba(185,170,240,.28); color: var(--purple); border-radius:3px; padding:0 2px; }
+
+        .legend {
+            margin-top: 30px; padding: 14px 16px;
+            border-top: 1px solid var(--line);
+            color: var(--text-4); font-size: 0.78rem; line-height: 1.8;
+        }
+        .legend strong { color: var(--text-2); }
+        .toast {
+            position: fixed; bottom: 24px; left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--surface); color: var(--purple);
+            border: 1px solid rgba(185,170,240,.3);
+            padding: 10px 22px; border-radius: 999px; font-weight: 600; font-size: 0.85rem;
+            opacity: 0; transition: all .3s; z-index: 100;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        @media (max-width: 560px) {
+            .row-game { max-width: 30vw; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+            .row { gap: 7px; padding-left: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="page-head">
+            <h1>游戏活动雷达</h1>
+            <span class="sub">2026-09-13 16:11 更新 · 45 活动 · 即将开始 0 · 进行中 45</span>
+        </div>
+        <div class="hr"></div>
+
+        <section id="flash"><p class="flash-title">近 7 天新捕获 · 13 条</p><div class="row flash-row">
+        <span class="ch-dot" style="background:#3ECF8E"></span>
+        <span class="row-game">元梦之星</span>
+        <span class="row-title"><span class="row-title-text">元梦之星 新赛季畅玩元梦赢288元红包</span></span>
+        <span class="row-times"><span class="t0v">T0 09-10</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/KoDio5sUxpP5rk3YILhmd557/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230210" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/KoDio5sUxpP5rk3YILhmd557/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230210" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row">
+        <span class="ch-dot" style="background:#EF9F27"></span>
+        <span class="row-game">和平精英</span>
+        <span class="row-title"><span class="row-title-text">预约和平精英新版本，领快爆专属Q币</span></span>
+        <span class="row-times"><span class="t0v">T0 09-10</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/cjm20260910ea444n/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/cjm20260910ea444n/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row">
+        <span class="ch-dot" style="background:#7FB3E8"></span>
+        <span class="row-game">洛克王国：世界</span>
+        <span class="row-title"><span class="row-title-text">《洛克王国：世界》赢平板电脑、京东卡等好礼</span></span>
+        <span class="row-times"><span class="t0v">T0 09-10</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33320.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33320.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row">
+        <span class="ch-dot" style="background:#7FB3E8"></span>
+        <span class="row-game">失控进化</span>
+        <span class="row-title"><span class="row-title-text">《失控进化》新老用户领3Q币、独家定制枪皮</span></span>
+        <span class="row-times"><span class="t0v">T0 09-10</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33332.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33332.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row">
+        <span class="ch-dot" style="background:#3ECF8E"></span>
+        <span class="row-game">和平精英</span>
+        <span class="row-title"><span class="row-title-text">和平精英 预约9.24吃鸡节赢Q币&amp;礼包</span></span>
+        <span class="row-times"><span class="t0v">T0 09-10</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/BMBVlY2nqRLfHJh2zqSKZDs1/static/index.html?at=1&amp;ta=0&amp;ht=1&amp;ts=1&amp;isGradualToolbar=true&amp;isTranslucentBar=true&amp;fc=0&amp;sc=0&amp;isShowLoading=false&amp;immersive=4&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;toolbarType=3&amp;pageStyle=2&amp;actId=20230296" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/BMBVlY2nqRLfHJh2zqSKZDs1/static/index.html?at=1&amp;ta=0&amp;ht=1&amp;ts=1&amp;isGradualToolbar=true&amp;isTranslucentBar=true&amp;fc=0&amp;sc=0&amp;isShowLoading=false&amp;immersive=4&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;toolbarType=3&amp;pageStyle=2&amp;actId=20230296" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row">
+        <span class="ch-dot" style="background:#7FB3E8"></span>
+        <span class="row-game">王者万象棋</span>
+        <span class="row-title"><span class="row-title-text">抢注《王者万象棋》领7Q币，抽PS5、外设好礼</span></span>
+        <span class="row-times"><span class="t0v">T0 09-09</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33296.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33296.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row">
+        <span class="ch-dot" style="background:#7FB3E8"></span>
+        <span class="row-game">王者万象棋</span>
+        <span class="row-title"><span class="row-title-text">下载《王者万象棋》抽定制周边、王者荣耀皮肤</span></span>
+        <span class="row-times"><span class="t0v">T0 09-09</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33317.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33317.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row">
+        <span class="ch-dot" style="background:#3ECF8E"></span>
+        <span class="row-game">使命召唤手游</span>
+        <span class="row-title"><span class="row-title-text">使命召唤手游 活动</span></span>
+        <span class="row-times"><span class="t0v">T0 09-09</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/hDpUKtqVyQkSkhgjSbWzunsa/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230072&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/hDpUKtqVyQkSkhgjSbWzunsa/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230072&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row extra hidden">
+        <span class="ch-dot" style="background:#7FB3E8"></span>
+        <span class="row-game">卡厄思梦境</span>
+        <span class="row-title"><span class="row-title-text">《卡厄思梦境》新版本上线  抽ROG耳机、游戏周边</span></span>
+        <span class="row-times"><span class="t0v">T0 09-08</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33196.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33196.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row extra hidden">
+        <span class="ch-dot" style="background:#EF9F27"></span>
+        <span class="row-game">洛克王国：世界</span>
+        <span class="row-title"><span class="row-title-text">完成任务赢炫彩蛋、红米平板等好礼</span></span>
+        <span class="row-times"><span class="t0v">T0 09-08</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/rocom20260908hw442d/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/rocom20260908hw442d/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row extra hidden">
+        <span class="ch-dot" style="background:#EF9F27"></span>
+        <span class="row-game">王者荣耀</span>
+        <span class="row-title"><span class="row-title-text">王者荣耀 快爆专属福利</span></span>
+        <span class="row-times"><span class="t0v">T0 09-08</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/yxzj20260908ev440n/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/yxzj20260908ev440n/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row extra hidden">
+        <span class="ch-dot" style="background:#3ECF8E"></span>
+        <span class="row-game">失控进化</span>
+        <span class="row-title"><span class="row-title-text">失控进化 活动</span></span>
+        <span class="row-times"><span class="t0v">T0 09-07</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/FFZAZrJN1BybP53mQBPNWqsM/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230205&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/FFZAZrJN1BybP53mQBPNWqsM/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230205&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div>
+<div class="row flash-row extra hidden">
+        <span class="ch-dot" style="background:#3ECF8E"></span>
+        <span class="row-game">洛克王国：世界</span>
+        <span class="row-title"><span class="row-title-text">洛克王国：世界 活动</span></span>
+        <span class="row-times"><span class="t0v">T0 09-07</span></span>
+        <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/3ZkRCoUTcBdK1Z0SbnHyO5OL/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230223&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/3ZkRCoUTcBdK1Z0SbnHyO5OL/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230223&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+    </div><button id="flash-more">展开其余 5 条 ▾</button></section>
+
+        <div class="toolbar">
+            <div class="tb-row1">
+                <input id="q" type="text" placeholder="搜游戏 / 活动 / 奖励关键词…">
+            </div>
+            <div class="tb-row2">
+                <button class="ch-tab active" data-ch="">全部 45</button>
+<button class="ch-tab" data-ch="好游快爆" style="color:#EF9F27">好游快爆 17</button>
+<button class="ch-tab" data-ch="4399" style="color:#7FB3E8">4399 10</button>
+<button class="ch-tab" data-ch="OPPO" style="color:#3ECF8E">OPPO 18</button>
+                <label class="fresh-toggle"><input type="checkbox" id="freshOnly"> 只看新捕获</label>
+            </div>
+        </div>
+
+        <main id="sections">
+            <section class="game-sec" data-game="和平精英" data-maxt1="1789142400000">
+            <div class="sec-head">
+                <span class="sec-name">和平精英</span>
+                <span class="sec-cnt">5</span>
+                <span class="new-t1">新 T1 09-12</span>
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1789142400000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">2</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="1" data-title="预约和平精英新版本，领快爆专属Q币" data-text="和平精英 预约和平精英新版本，领快爆专属q币 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">预约和平精英新版本，领快爆专属Q币</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-12</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/cjm20260910ea444n/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/cjm20260910ea444n/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+<div class="row" data-ch="好游快爆" data-fresh="0" data-title="赢1888Q币、吉莉礼服套装等好礼" data-text="和平精英 赢1888q币、吉莉礼服套装等好礼 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">赢1888Q币、吉莉礼服套装等好礼</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-02</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/cjm20260826rn429b/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/cjm20260826rn429b/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788969600000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">2</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="1" data-title="和平精英 预约9.24吃鸡节赢Q币&amp;礼包" data-text="和平精英 和平精英 预约9.24吃鸡节赢q币&amp;礼包 q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">和平精英 预约9.24吃鸡节赢Q币&amp;礼包</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/BMBVlY2nqRLfHJh2zqSKZDs1/static/index.html?at=1&amp;ta=0&amp;ht=1&amp;ts=1&amp;isGradualToolbar=true&amp;isTranslucentBar=true&amp;fc=0&amp;sc=0&amp;isShowLoading=false&amp;immersive=4&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;toolbarType=3&amp;pageStyle=2&amp;actId=20230296" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/BMBVlY2nqRLfHJh2zqSKZDs1/static/index.html?at=1&amp;ta=0&amp;ht=1&amp;ts=1&amp;isGradualToolbar=true&amp;isTranslucentBar=true&amp;fc=0&amp;sc=0&amp;isShowLoading=false&amp;immersive=4&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;toolbarType=3&amp;pageStyle=2&amp;actId=20230296" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+<div class="row" data-ch="OPPO" data-fresh="0" data-title="和平精英 活动" data-text="和平精英 和平精英 活动 q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">和平精英 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-02</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/nIBOPy4YInzHFNlkFrjSGuU5/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230046&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/nIBOPy4YInzHFNlkFrjSGuU5/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230046&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788278400000">
+                <p class="ch-label" style="color:#7FB3E8">4399 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="4399" data-fresh="0" data-title="《和平精英》暴击1888Q币&amp;套装-吉莉礼服" data-text="和平精英 《和平精英》暴击1888q币&amp;套装-吉莉礼服 q币 4399">
+                    <span class="ch-dot" style="background:#7FB3E8"></span>
+                    <span class="row-title"><span class="row-title-text">《和平精英》暴击1888Q币&amp;套装-吉莉礼服</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-02</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33237.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33237.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec" data-game="失控进化" data-maxt1="1789005600000">
+            <div class="sec-head">
+                <span class="sec-name">失控进化</span>
+                <span class="sec-cnt">3</span>
+                <span class="new-t1">新 T1 09-10</span>
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1789005600000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="1" data-title="失控进化 活动" data-text="失控进化 失控进化 活动 q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">失控进化 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/FFZAZrJN1BybP53mQBPNWqsM/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230205&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/FFZAZrJN1BybP53mQBPNWqsM/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230205&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1789005600000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="0" data-title="失控进化 快爆专属福利" data-text="失控进化 失控进化 快爆专属福利 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">失控进化 快爆专属福利</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/rm20260904vt439n/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/rm20260904vt439n/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788969600000">
+                <p class="ch-label" style="color:#7FB3E8">4399 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="4399" data-fresh="1" data-title="《失控进化》新老用户领3Q币、独家定制枪皮" data-text="失控进化 《失控进化》新老用户领3q币、独家定制枪皮 q币 4399">
+                    <span class="ch-dot" style="background:#7FB3E8"></span>
+                    <span class="row-title"><span class="row-title-text">《失控进化》新老用户领3Q币、独家定制枪皮</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33332.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33332.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec" data-game="元梦之星" data-maxt1="1789005600000">
+            <div class="sec-head">
+                <span class="sec-name">元梦之星</span>
+                <span class="sec-cnt">1</span>
+                <span class="new-t1">新 T1 09-10</span>
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1789005600000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="1" data-title="元梦之星 新赛季畅玩元梦赢288元红包" data-text="元梦之星 元梦之星 新赛季畅玩元梦赢288元红包 现金 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">元梦之星 新赛季畅玩元梦赢288元红包</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/KoDio5sUxpP5rk3YILhmd557/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230210" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/KoDio5sUxpP5rk3YILhmd557/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230210" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec" data-game="王者万象棋" data-maxt1="1788969600000">
+            <div class="sec-head">
+                <span class="sec-name">王者万象棋</span>
+                <span class="sec-cnt">4</span>
+                <span class="new-t1">新 T1 09-10</span>
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1788969600000">
+                <p class="ch-label" style="color:#7FB3E8">4399 <span class="ch-cnt">2</span></p>
+                <div class="row" data-ch="4399" data-fresh="1" data-title="抢注《王者万象棋》领7Q币，抽PS5、外设好礼" data-text="王者万象棋 抢注《王者万象棋》领7q币，抽ps5、外设好礼 q币 4399">
+                    <span class="ch-dot" style="background:#7FB3E8"></span>
+                    <span class="row-title"><span class="row-title-text">抢注《王者万象棋》领7Q币，抽PS5、外设好礼</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33296.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33296.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+<div class="row" data-ch="4399" data-fresh="1" data-title="下载《王者万象棋》抽定制周边、王者荣耀皮肤" data-text="王者万象棋 下载《王者万象棋》抽定制周边、王者荣耀皮肤 q币 4399">
+                    <span class="ch-dot" style="background:#7FB3E8"></span>
+                    <span class="row-title"><span class="row-title-text">下载《王者万象棋》抽定制周边、王者荣耀皮肤</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-09</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33317.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33317.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788883200000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="0" data-title="王者万象棋 活动" data-text="王者万象棋 王者万象棋 活动 现金 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">王者万象棋 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-09</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/4rUI2wI1dXwL9tmmgQK4RcPU/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230165&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/4rUI2wI1dXwL9tmmgQK4RcPU/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230165&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788883200000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="0" data-title="抢先下载瓜分50万Q币，前5万名必得6Q币" data-text="王者万象棋 抢先下载瓜分50万q币，前5万名必得6q币 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">抢先下载瓜分50万Q币，前5万名必得6Q币</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-09</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/osgame20260902a437/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/osgame20260902a437/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec" data-game="洛克王国：世界" data-maxt1="1788969600000">
+            <div class="sec-head">
+                <span class="sec-name">洛克王国：世界</span>
+                <span class="sec-cnt">4</span>
+                <span class="new-t1">新 T1 09-10</span>
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1788969600000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="1" data-title="洛克王国：世界 活动" data-text="洛克王国：世界 洛克王国：世界 活动 q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">洛克王国：世界 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/3ZkRCoUTcBdK1Z0SbnHyO5OL/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230223&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/3ZkRCoUTcBdK1Z0SbnHyO5OL/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230223&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788969600000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">2</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="1" data-title="完成任务赢炫彩蛋、红米平板等好礼" data-text="洛克王国：世界 完成任务赢炫彩蛋、红米平板等好礼 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">完成任务赢炫彩蛋、红米平板等好礼</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/rocom20260908hw442d/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/rocom20260908hw442d/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+<div class="row" data-ch="好游快爆" data-fresh="0" data-title="王国逐锋杯招募中！参赛瓜分千元Q币" data-text="洛克王国：世界 王国逐锋杯招募中！参赛瓜分千元q币 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">王国逐锋杯招募中！参赛瓜分千元Q币</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://huodong3.3839.com/n/hykb/shuiyousai2/yxss.php?comm_id=13&amp;imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://huodong3.3839.com/n/hykb/shuiyousai2/yxss.php?comm_id=13&amp;imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788969600000">
+                <p class="ch-label" style="color:#7FB3E8">4399 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="4399" data-fresh="1" data-title="《洛克王国：世界》赢平板电脑、京东卡等好礼" data-text="洛克王国：世界 《洛克王国：世界》赢平板电脑、京东卡等好礼 实物硬件 4399">
+                    <span class="ch-dot" style="background:#7FB3E8"></span>
+                    <span class="row-title"><span class="row-title-text">《洛克王国：世界》赢平板电脑、京东卡等好礼</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33320.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33320.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec" data-game="使命召唤手游" data-maxt1="1788969600000">
+            <div class="sec-head">
+                <span class="sec-name">使命召唤手游</span>
+                <span class="sec-cnt">3</span>
+                <span class="new-t1">新 T1 09-10</span>
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1788969600000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="0" data-title="新人注册领快爆专属红包，抽京东卡好礼" data-text="使命召唤手游 新人注册领快爆专属红包，抽京东卡好礼 现金 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">新人注册领快爆专属红包，抽京东卡好礼</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/codm20260831gf431n/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/codm20260831gf431n/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788969600000">
+                <p class="ch-label" style="color:#7FB3E8">4399 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="4399" data-fresh="0" data-title="《CODM》×《崩坏3》联动新老玩家送6元红包" data-text="使命召唤手游 《codm》×《崩坏3》联动新老玩家送6元红包 现金 4399">
+                    <span class="ch-dot" style="background:#7FB3E8"></span>
+                    <span class="row-title"><span class="row-title-text">《CODM》×《崩坏3》联动新老玩家送6元红包</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-10</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33202.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33202.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788883200000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="1" data-title="使命召唤手游 活动" data-text="使命召唤手游 使命召唤手游 活动 现金 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">使命召唤手游 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-09</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/hDpUKtqVyQkSkhgjSbWzunsa/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230072&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/hDpUKtqVyQkSkhgjSbWzunsa/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230072&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec" data-game="王者荣耀" data-maxt1="1788912000000">
+            <div class="sec-head">
+                <span class="sec-name">王者荣耀</span>
+                <span class="sec-cnt">1</span>
+                <span class="new-t1">新 T1 09-09</span>
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1788912000000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="1" data-title="王者荣耀 快爆专属福利" data-text="王者荣耀 王者荣耀 快爆专属福利 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">王者荣耀 快爆专属福利</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-09</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/yxzj20260908ev440n/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/yxzj20260908ev440n/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec" data-game="卡厄思梦境" data-maxt1="1788883200000">
+            <div class="sec-head">
+                <span class="sec-name">卡厄思梦境</span>
+                <span class="sec-cnt">1</span>
+                <span class="new-t1">新 T1 09-09</span>
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1788883200000">
+                <p class="ch-label" style="color:#7FB3E8">4399 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="4399" data-fresh="1" data-title="《卡厄思梦境》新版本上线  抽ROG耳机、游戏周边" data-text="卡厄思梦境 《卡厄思梦境》新版本上线  抽rog耳机、游戏周边 实物硬件 4399">
+                    <span class="ch-dot" style="background:#7FB3E8"></span>
+                    <span class="row-title"><span class="row-title-text">《卡厄思梦境》新版本上线  抽ROG耳机、游戏周边</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-09</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33196.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33196.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec" data-game="无畏契约" data-maxt1="1788796800000">
+            <div class="sec-head">
+                <span class="sec-name">无畏契约</span>
+                <span class="sec-cnt">3</span>
+                <span class="new-t1">新 T1 09-08</span>
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1788796800000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">2</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="0" data-title="无畏契约 预约《决胜新境》新版本，领专属好礼！" data-text="无畏契约 无畏契约 预约《决胜新境》新版本，领专属好礼！ q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">无畏契约 预约《决胜新境》新版本，领专属好礼！</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-08</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/mnChBICXruTiHzB6emsz4E9o/static/index.html?preload=1&amp;ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230162&amp;c=0&amp;autoIntermodalSubscribe=1" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/mnChBICXruTiHzB6emsz4E9o/static/index.html?preload=1&amp;ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230162&amp;c=0&amp;autoIntermodalSubscribe=1" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+<div class="row" data-ch="OPPO" data-fresh="0" data-title="无畏契约 活动" data-text="无畏契约 无畏契约 活动 q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">无畏契约 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 08-04</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/X7laPiyhTe7KtNtZDWFxl4lg/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229461&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/X7laPiyhTe7KtNtZDWFxl4lg/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229461&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788451200000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="0" data-title="回瓦手秀，领1000赛季币&amp;限时枪皮" data-text="无畏契约 回瓦手秀，领1000赛季币&amp;限时枪皮 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">回瓦手秀，领1000赛季币&amp;限时枪皮</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-04</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/codev20260831fr434b/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/codev20260831fr434b/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec collapsed" data-game="地下城与勇士：起源" data-maxt1="1788537600000">
+            <div class="sec-head">
+                <span class="sec-name">地下城与勇士：起源</span>
+                <span class="sec-cnt">1</span>
+                
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1788537600000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="0" data-title="地下城与勇士：起源 活动" data-text="地下城与勇士：起源 地下城与勇士：起源 活动 实物硬件 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">地下城与勇士：起源 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-05</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/hZUzQANIuXMFt3RldtGIc3pX/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230211&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/hZUzQANIuXMFt3RldtGIc3pX/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230211&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec collapsed" data-game="火影忍者手游" data-maxt1="1788451200000">
+            <div class="sec-head">
+                <span class="sec-name">火影忍者手游</span>
+                <span class="sec-cnt">3</span>
+                
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1788451200000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="0" data-title="新版本福利上线，免费赢S忍碎片" data-text="火影忍者手游 新版本福利上线，免费赢s忍碎片 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">新版本福利上线，免费赢S忍碎片</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-04</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/hyrz20260825nq427b/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/hyrz20260825nq427b/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788451200000">
+                <p class="ch-label" style="color:#7FB3E8">4399 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="4399" data-fresh="0" data-title="《火影忍者》宇智波鼬「晓·朱」9月11日登场！登录抽S忍碎片" data-text="火影忍者手游 《火影忍者》宇智波鼬「晓·朱」9月11日登场！登录抽s忍碎片 q币 4399">
+                    <span class="ch-dot" style="background:#7FB3E8"></span>
+                    <span class="row-title"><span class="row-title-text">《火影忍者》宇智波鼬「晓·朱」9月11日登场！登录抽S忍碎片</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-04</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33192.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33192.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1787241600000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="0" data-title="火影忍者手游 活动" data-text="火影忍者手游 火影忍者手游 活动 q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">火影忍者手游 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 08-21</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/gBVsse8K4rsLmFIFBu4XV5tK/static/index.html?at=1&amp;ta=0&amp;ht=1&amp;ts=1&amp;isGradualToolbar=true&amp;isTranslucentBar=true&amp;fc=0&amp;sc=0&amp;isShowLoading=false&amp;immersive=4&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;toolbarType=3" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/gBVsse8K4rsLmFIFBu4XV5tK/static/index.html?at=1&amp;ta=0&amp;ht=1&amp;ts=1&amp;isGradualToolbar=true&amp;isTranslucentBar=true&amp;fc=0&amp;sc=0&amp;isShowLoading=false&amp;immersive=4&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;toolbarType=3" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec collapsed" data-game="三角洲行动" data-maxt1="1788451200000">
+            <div class="sec-head">
+                <span class="sec-name">三角洲行动</span>
+                <span class="sec-cnt">3</span>
+                
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1788451200000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="0" data-title="三角洲行动 活动" data-text="三角洲行动 三角洲行动 活动 q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">三角洲行动 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-04</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/pUg2SfD7cpgVtl191wjFSlsr/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230105&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/pUg2SfD7cpgVtl191wjFSlsr/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230105&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788451200000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="0" data-title="参与赢刀皮捆绑包、专属枪皮" data-text="三角洲行动 参与赢刀皮捆绑包、专属枪皮 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">参与赢刀皮捆绑包、专属枪皮</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-04</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/dfm20260901fw435n/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/dfm20260901fw435n/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788451200000">
+                <p class="ch-label" style="color:#7FB3E8">4399 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="4399" data-fresh="0" data-title="《三角洲行动》赢专属喷漆、抽限定武器外观" data-text="三角洲行动 《三角洲行动》赢专属喷漆、抽限定武器外观 q币 4399">
+                    <span class="ch-dot" style="background:#7FB3E8"></span>
+                    <span class="row-title"><span class="row-title-text">《三角洲行动》赢专属喷漆、抽限定武器外观</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-04</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33271.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33271.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec collapsed" data-game="暗区突围" data-maxt1="1788192000000">
+            <div class="sec-head">
+                <span class="sec-name">暗区突围</span>
+                <span class="sec-cnt">3</span>
+                
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1788192000000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="0" data-title="暗区突围 活动" data-text="暗区突围 暗区突围 活动 现金 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">暗区突围 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-01</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/YlCSaU262O91xtGdCPXTtCVi/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230047&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/YlCSaU262O91xtGdCPXTtCVi/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20230047&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788192000000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="0" data-title="注册&amp;回归领Q币，每日免费赢好礼" data-text="暗区突围 注册&amp;回归领q币，每日免费赢好礼 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">注册&amp;回归领Q币，每日免费赢好礼</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-01</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/aqtw20260827hr430n/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/aqtw20260827hr430n/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1788192000000">
+                <p class="ch-label" style="color:#7FB3E8">4399 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="4399" data-fresh="0" data-title="《暗区突围》S19赛季 上暗暴击888Q币" data-text="暗区突围 《暗区突围》s19赛季 上暗暴击888q币 q币 4399">
+                    <span class="ch-dot" style="background:#7FB3E8"></span>
+                    <span class="row-title"><span class="row-title-text">《暗区突围》S19赛季 上暗暴击888Q币</span></span>
+                    <span class="row-times"><span class="t1v">T1 09-01</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://a.4399.cn/yxh-huodong-id-33247.html" title="复制链接">⧉</button><a class="mini-open" href="https://a.4399.cn/yxh-huodong-id-33247.html" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec collapsed" data-game="金铲铲之战" data-maxt1="1787155200000">
+            <div class="sec-head">
+                <span class="sec-name">金铲铲之战</span>
+                <span class="sec-cnt">2</span>
+                
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1787155200000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="0" data-title="金铲铲之战 新赛季+五周年活动开启！至臻小小英雄、手机、Switch等多重好礼等你赢！" data-text="金铲铲之战 金铲铲之战 新赛季+五周年活动开启！至臻小小英雄、手机、switch等多重好礼等你赢！ q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">金铲铲之战 新赛季+五周年活动开启！至臻小小英雄、手机、Switch等多重好礼等你赢！</span></span>
+                    <span class="row-times"><span class="t1v">T1 08-20</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/iwRiF52ghEnQC53Fri331ZvU/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229763&amp;c=0" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/iwRiF52ghEnQC53Fri331ZvU/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229763&amp;c=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1787155200000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="0" data-title="完成任务抽「花语夜阑」棋盘" data-text="金铲铲之战 完成任务抽「花语夜阑」棋盘 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">完成任务抽「花语夜阑」棋盘</span></span>
+                    <span class="row-times"><span class="t1v">T1 08-20</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/jk20260812n423/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/jk20260812n423/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec collapsed" data-game="逆战：未来" data-maxt1="1786550400000">
+            <div class="sec-head">
+                <span class="sec-name">逆战：未来</span>
+                <span class="sec-cnt">3</span>
+                
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1786550400000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="0" data-title="逆战：未来 活动" data-text="逆战：未来 逆战：未来 活动 q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">逆战：未来 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 08-13</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/TwduuAH9Yx1xeE88abYSyD9W/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229698&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/TwduuAH9Yx1xeE88abYSyD9W/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229698&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1786550400000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">2</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="0" data-title="逆战：未来 快爆专属福利" data-text="逆战：未来 逆战：未来 快爆专属福利 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">逆战：未来 快爆专属福利</span></span>
+                    <span class="row-times"><span class="t1v">T1 08-13</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/nzm20260810pn419b/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/nzm20260810pn419b/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+<div class="row" data-ch="好游快爆" data-fresh="0" data-title="逆战：未来新赛季福利活动" data-text="逆战：未来 逆战：未来新赛季福利活动 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">逆战：未来新赛季福利活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 07-02</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/nzm20260630pn381b/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/nzm20260630pn381b/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec collapsed" data-game="冒险岛：枫之传说" data-maxt1="1786464000000">
+            <div class="sec-head">
+                <span class="sec-name">冒险岛：枫之传说</span>
+                <span class="sec-cnt">1</span>
+                
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1786464000000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="0" data-title="冒险岛：枫之传说 活动" data-text="冒险岛：枫之传说 冒险岛：枫之传说 活动 q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">冒险岛：枫之传说 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 08-12</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/GdTvHuXlzDhd0etr31tkpUPH/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229694&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/GdTvHuXlzDhd0etr31tkpUPH/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229694&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec collapsed" data-game="穿越火线枪战王者" data-maxt1="1785988800000">
+            <div class="sec-head">
+                <span class="sec-name">穿越火线枪战王者</span>
+                <span class="sec-cnt">2</span>
+                
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1785988800000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="0" data-title="穿越火线枪战王者 快爆专属福利" data-text="穿越火线枪战王者 穿越火线枪战王者 快爆专属福利 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">穿越火线枪战王者 快爆专属福利</span></span>
+                    <span class="row-times"><span class="t1v">T1 08-06</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/cfm20260728tq405b/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/cfm20260728tq405b/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1785254400000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="0" data-title="穿越火线枪战王者 活动" data-text="穿越火线枪战王者 穿越火线枪战王者 活动 现金 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">穿越火线枪战王者 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 07-29</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/wTxETBAC82Y7ZelMibh2MLQR/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229454&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/wTxETBAC82Y7ZelMibh2MLQR/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=2&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229454&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+<section class="game-sec collapsed" data-game="QQ飞车" data-maxt1="1784649600000">
+            <div class="sec-head">
+                <span class="sec-name">QQ飞车</span>
+                <span class="sec-cnt">2</span>
+                
+                <span class="sec-toggle">收起 ▴</span>
+            </div>
+            <div class="sec-body"><div class="ch-group" data-maxt1="1784649600000">
+                <p class="ch-label" style="color:#EF9F27">好游快爆 <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="好游快爆" data-fresh="0" data-title="年中盛典福利，赢S-霆光、888Q币" data-text="qq飞车 年中盛典福利，赢s-霆光、888q币 q币 好游快爆">
+                    <span class="ch-dot" style="background:#EF9F27"></span>
+                    <span class="row-title"><span class="row-title-text">年中盛典福利，赢S-霆光、888Q币</span></span>
+                    <span class="row-times"><span class="t1v">T1 07-22</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://act.3839.com/n/hykb_hd/speedm20260720tw399n/index.php?imm=0" title="复制链接">⧉</button><a class="mini-open" href="https://act.3839.com/n/hykb_hd/speedm20260720tw399n/index.php?imm=0" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div>
+<div class="ch-group" data-maxt1="1784390400000">
+                <p class="ch-label" style="color:#3ECF8E">OPPO <span class="ch-cnt">1</span></p>
+                <div class="row" data-ch="OPPO" data-fresh="0" data-title="QQ飞车 活动" data-text="qq飞车 qq飞车 活动 q币 oppo">
+                    <span class="ch-dot" style="background:#3ECF8E"></span>
+                    <span class="row-title"><span class="row-title-text">QQ飞车 活动</span></span>
+                    <span class="row-times"><span class="t1v">T1 07-19</span></span>
+                    <span class="row-act"><button class="mini-copy" data-url="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/XL0JPJ3QDcKdOqiYYkK0NiDX/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=3&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229319&amp;channelName=game_detail_h5&amp;adtag=" title="复制链接">⧉</button><a class="mini-open" href="https://ie-activity-cn.heytapimage.com/nvwa-static/sites/XL0JPJ3QDcKdOqiYYkK0NiDX/static/index.html?ht=1&amp;isShowLoading=false&amp;ls=3&amp;__pf__=detail&amp;__barStyle__=0_2&amp;isGradualToolbar=false&amp;isTranslucentBar=false&amp;actId=20229319&amp;channelName=game_detail_h5&amp;adtag=" target="_blank" rel="noopener" title="电脑打开">↗</a></span>
+                </div>
+            </div></div>
+        </section>
+        </main>
+
+        <div class="legend">
+            <strong>图例说明</strong><br>
+            · <span style="color:var(--purple)">紫色 T0</span> 只出现在顶部速报（创建/建页信号，只取各渠道自身源头痕迹，任何校对都不会改动 T0）：好游快爆 URL 建页期 / 4399 API stime / OPPO schema.js 建页配置（早于页面规则时为「提前建页」）<br>
+            · 下方游戏分区只显示<span style="color:var(--text-2)">白色 T1</span>（开始时间）；渠道 = 圆点颜色（橙=好游快爆、蓝=4399、绿=OPPO）；T2 结束时间已收进数据不在页面显示<br>
+            · 两区排序：速报按 T0 最新在前；分区/渠道组/活动行均按 T1 最新在前，新捕获的活动自动排到最前<br>
+            · 分区头「新 T1」徽章 = 该游戏有近 7 天内开始的活动（自动展开置顶）；其余分区默认收起，点击分区头展开/收起<br>
+            · 搜索、渠道 Tab、只看新捕获可叠加使用；悬停行尾 ⧉ 复制链接、↗ 电脑打开<br>
+            · 仅 OPPO「即日起」类模糊 T1 会做跨渠道校验（结果记录在数据字段 t1_source 中，页面不显示）
+        </div>
+    </div>
+    <div class="toast" id="toast">链接已复制</div>
+    <script>
+        var activeChannel = "";
+        function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+        function highlight(row,q){
+            var el=row.querySelector(".row-title-text"); if(!el) return;
+            var raw=row.dataset.title||"";
+            var low=raw.toLowerCase(); var i=low.indexOf(q);
+            if(i<0){el.textContent=raw;return;}
+            el.innerHTML=esc(raw.slice(0,i))+"<mark class='hl'>"+esc(raw.slice(i,i+q.length))+"</mark>"+esc(raw.slice(i+q.length));
+        }
+        function unhighlight(row){
+            var el=row.querySelector(".row-title-text"); if(!el) return;
+            el.textContent=row.dataset.title||"";
+        }
+        function applyFilters(){
+            var q=document.getElementById("q").value.trim().toLowerCase();
+            var freshOnly=document.getElementById("freshOnly").checked;
+            document.querySelectorAll(".row:not(.flash-row)").forEach(function(row){
+                var ok=(!activeChannel||row.dataset.ch===activeChannel)
+                    &&(!freshOnly||row.dataset.fresh==="1")
+                    &&(!q||row.dataset.text.indexOf(q)>=0);
+                row.classList.toggle("hidden",!ok);
+                if(ok&&q){highlight(row,q);}else{unhighlight(row);}
+            });
+            document.querySelectorAll(".ch-group").forEach(function(g){
+                g.classList.toggle("hidden",!g.querySelector(".row:not(.hidden)"));
+            });
+            document.querySelectorAll(".game-sec").forEach(function(s){
+                var has=!!s.querySelector(".row:not(.hidden)");
+                s.classList.toggle("hidden",!has);
+                s.classList.toggle("search-open",!!(q&&has));
+            });
+        }
+        // 排序已在生成时固定：速报按 T0 最新在前、分区按 T1 最新在前
+        // 工具栏事件
+        document.getElementById("q").addEventListener("input",applyFilters);
+        document.getElementById("freshOnly").addEventListener("change",applyFilters);
+        document.querySelectorAll(".ch-tab").forEach(function(t){
+            t.addEventListener("click",function(){
+                document.querySelectorAll(".ch-tab").forEach(function(x){x.classList.remove("active");});
+                t.classList.add("active");
+                activeChannel=t.dataset.ch;
+                applyFilters();
+            });
+        });
+        // 分区收起/展开
+        document.querySelectorAll(".sec-head").forEach(function(h){
+            h.addEventListener("click",function(){h.closest(".game-sec").classList.toggle("collapsed");});
+        });
+        // 速报折叠展开
+        var fmore=document.getElementById("flash-more");
+        if(fmore){
+            fmore.addEventListener("click",function(){
+                var ex=[].slice.call(document.querySelectorAll("#flash .row.extra"));
+                var showing=ex.length&&ex[0].classList.contains("hidden");
+                ex.forEach(function(r){r.classList.toggle("hidden",!showing);});
+                fmore.textContent=showing?("收起 ▴"):("展开其余 "+ex.length+" 条 ▾");
+            });
+        }
+        // 复制链接
+        function fallbackCopy(text){
+            var ta=document.createElement("textarea");
+            ta.value=text; ta.style.position="fixed"; ta.style.opacity="0";
+            document.body.appendChild(ta); ta.select();
+            try{document.execCommand("copy");showToast();}catch(err){}
+            document.body.removeChild(ta);
+        }
+        function showToast(){
+            var t=document.getElementById("toast");
+            t.classList.add("show");
+            setTimeout(function(){t.classList.remove("show");},1800);
+        }
+        document.addEventListener("click",function(e){
+            var btn=e.target.closest(".mini-copy");
+            if(!btn) return;
+            var url=btn.getAttribute("data-url");
+            if(!url) return;
+            if(navigator.clipboard&&navigator.clipboard.writeText){
+                navigator.clipboard.writeText(url).then(showToast).catch(function(){fallbackCopy(url);});
+            }else{fallbackCopy(url);}
+        });
+    </script>
+</body>
+</html>
