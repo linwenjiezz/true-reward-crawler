@@ -567,223 +567,6 @@
   "t1_source": "own_page_rule"
  },
  {
-  "game": "无畏契约",
-  "title": "无畏契约 活动",
-  "desc": "无畏契约手游一周年活动  无畏契约手游一周年活动 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 腾讯游戏 切换账号 手瓦 赛季活动 确认参与 Q币 云积分 渠道包注册且等级 领取 成功 领取成功 下载并注册 活动期间登录游戏 天内未登录用户 活动期间完成一场对局 下载注册且账号等级达到 按钮 掌上无畏契约 图片组件 互娱 游戏中心 默认图片 跳转 查询 积分 奖励将在 账号 抽奖 每日完成一次任意模式对局 每日任意模式对局胜利数量 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号我也钛能打了 礼包总数量 角色等级达到 级后 还能获得独家永久喷漆 渠道平台专属加赠 活动期间登录 次游戏即可领取专属称号 大卡 头像 登录并且对局一场游戏即可领取专属称号算你厉害 称号 活动期间在游戏中心首次下载注册 且等级达到 级可领 礼包数量共 数量有限先到先得 活动期间内 在游戏中心注册且近 日未登录用户 通过本页登录游戏即可领 渠道免费抽奖活动 每日任务 活动期间 获得 次抽奖机会 每日完成一次任意对局 单次抽奖消耗 奖励名称 数量 概率 墨武 套装 军",
-  "create": "2026-07-27T00:00:00+08:00",
-  "schema_start": "2026-07-27T00:00:00+08:00",
-  "start": "2026-08-04T00:00:00+08:00",
-  "end": "2026-09-21T00:00:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/X7laPiyhTe7KtNtZDWFxl4lg/static/index.html?ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20229461&channelName=game_detail_h5&adtag=",
-  "id": "20229461",
-  "kind": "real",
-  "reward": "Q币",
-  "noise_hint": [
-   "喷漆",
-   "称号",
-   "积分"
-  ],
-  "_vague_rule": false,
-  "t1_source": "own_page_rule"
- },
- {
-  "game": "无畏契约",
-  "title": "无畏契约 进群找靠谱队友，组队冲分，拿专属奖励",
-  "desc": "加入俱乐部，遇好友领福利！ 活动 加入俱乐部，遇好友领福利！ 新页面 默认页面 背景图组件 定位容器 图片组件 加入俱乐部 遇好友领福利 无畏契约 源能行动",
-  "create": "",
-  "schema_start": "2026-06-08T00:00:00+08:00",
-  "start": "2026-06-08T00:00:00+08:00",
-  "end": "2026-09-30T23:59:59+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/MiCBzLTZn8jTXAd5NqNbzGAp/static/index.html?ht=1&ls=2&actId=20228592&channelName=dlw&c=0",
-  "id": "20228592",
-  "kind": "noise",
-  "reward": null,
-  "noise_hint": [
-   "俱乐部"
-  ],
-  "_vague_rule": true,
-  "t1_source": "schema_only_unverified",
-  "t1_conflict": "2026-09-04T00:00:00+08:00/快爆"
- },
- {
-  "game": "无畏契约",
-  "title": "无畏契约 预约《决胜新境》新版本，领专属好礼！",
-  "desc": "手瓦s8新版本《决胜新境》预约 活动 手瓦s8新版本《决胜新境》预约 新页面 默认页面 背景图组件 定位容器 互娱联运订阅按钮 无畏契约 源能行动 手瓦新版本现已上线 赛季 谢谢参与 订阅 已订阅 节点已过期 确定 腾讯游戏 手瓦 新版本预约活动 切换账号 确认参与 互娱下载按钮 领奖 云积分 渠道包注册且等级 领取 成功 领取成功 下载并注册 下载注册且账号等级达到 天内未登录用户 预约领取 新版本预约 登录 图片组件 掌上无畏契约 无畏契约国服官方助手 打瓦逛社区 就来 主要功能包括 好友 好友上线提醒 跨端聊天组队 便捷添加游戏好友 战绩 官方认定战绩评级系统 六维图战力评估 好友战绩随心查 推荐 抢先知晓版本内容 获取全部活动信息与电竞动态 福利 无畏契约专属道具奖励 快捷参与游戏活动领取游戏奖励 同城 支持查询附近玩家排名 附近网吧及线下活动 发现身边的瓦友 发表 便捷发布图文与视频 与瓦友交流瓦瓦心得 更多精彩模板等你来用 更多功能将会持续更新 欢迎每一位瓦友的建议与反馈 跳转 查询 Q币 积分 互娱 游戏中心 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号",
-  "create": "2026-09-04T00:00:00+08:00",
-  "schema_start": "2026-09-04T00:00:00+08:00",
-  "start": "2026-09-08T00:00:00+08:00",
-  "end": "2026-09-21T00:00:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/mnChBICXruTiHzB6emsz4E9o/static/index.html?preload=1&ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20230162&c=0&autoIntermodalSubscribe=1",
-  "id": "20230162",
-  "kind": "real",
-  "reward": "Q币",
-  "noise_hint": [
-   "喷漆",
-   "称号",
-   "积分"
-  ],
-  "_vague_rule": false,
-  "t1_source": "own_page_rule"
- },
- {
-  "game": "无畏契约",
-  "title": "无畏契约 活动",
-  "desc": "无畏契约手游新版本预约活动",
-  "create": "",
-  "schema_start": "",
-  "start": "",
-  "end": "",
-  "url": "https://ie-activity-cn.heytapimage.com/ie-activity/staticActivity/6pedeA/htmls/index.html?uActId=21960&actId=20226177&bizType=ie&at=1&ta=0&immersive=3&c=0&ts=0&preload=1&autoIntermodalSubscribe=1",
-  "id": "20226177",
-  "kind": "noise",
-  "reward": null,
-  "noise_hint": [
-   "新版本预约",
-   "预约"
-  ],
-  "_vague_rule": false
- },
- {
-  "game": "无畏契约",
-  "title": "无畏契约 活动",
-  "desc": "无畏契约手游S3赛季活动  无畏契约手游S3赛季活动 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 腾讯游戏 瓦手 赛季活动 切换账号 确认参与 新版本登录送专属礼物 领取 成功 领取成功 登录送专属称号 下载并注册 完成 场对局 下载注册且账号等级达到 每日完成一次任意模式对局 每日任意模式对局胜利数量 视频组件 抽奖 奖励将在 账号 按钮 掌上无畏契约 无畏契约国服官方助手 打瓦逛社区 就来 主要功能包括 好友 好友上线提醒 跨端聊天组队 便捷添加游戏好友 战绩 官方认定战绩评级系统 六维图战力评估 好友战绩随心查 推荐 抢先知晓版本内容 获取全部活动信息与电竞动态 福利 无畏契约专属道具奖励 快捷参与游戏活动领取游戏奖励 同城 支持查询附近玩家排名 附近网吧及线下活动 发现身边的瓦友 发表 便捷发布图文与视频 与瓦友交流瓦瓦心得 更多精彩模板等你来用 更多功能将会持续更新 欢迎每一位瓦友的建议与反馈 哪吒之魔童降世 我命由我不由天 默认图片 轮播 图片组件 战术射击 全员皆是英雄 以经典的爆破模式为核心玩法 搭配众多拥有独特技能与清晰明确定位的英",
-  "create": "2025-12-15T00:00:00+08:00",
-  "schema_start": "2025-12-15T00:00:00+08:00",
-  "start": "2025-12-18T00:00:00+08:00",
-  "end": "2026-02-03T00:00:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/MrMWMsrT7Ndwmc6aHub4nkt9/static/index.html?preload=1&ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20226396&c=0",
-  "id": "20226396",
-  "kind": "real",
-  "reward": "Q币",
-  "noise_hint": [
-   "枪械",
-   "喷漆",
-   "称号"
-  ],
-  "_vague_rule": false,
-  "t1_source": "own_page_rule"
- },
- {
-  "game": "无畏契约",
-  "title": "无畏契约 活动",
-  "desc": "无畏契约新春版本预约活动  无畏契约新春版本预约活动 新页面 默认页面 背景图组件 定位容器 腾讯游戏 无畏契约 源能行动 瓦手 新版本 预约活动 切换账号 确认参与 云积分 领取 成功 领取成功 预约领取 下载并注册 登录送专属称号 下载注册且账号等级达到 跳转 查询 Q币 积分 默认图片 视频组件 图片组件 按钮 掌上无畏契约 互娱下载按钮 领奖 游戏中心 互娱联运订阅按钮 无畏契约手游新版本 日正式上线 谢谢参与 确定 订阅 已订阅 节点已过期 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号我也钛能打了 礼包总数量 角色等级达到 级后 还能获得独家永久喷漆 渠道平台专属加赠 预约后登录 次游戏即可领取专属称号超级外向 完成 场对局即可领取上钩 喷漆 活动期间在游戏中心首次下载注册 且等级达到 级可领 礼包数量共 数量有限先到先得 注意事项 活动期间内同类型活动只能参与一次 限制同一个游戏账号多平台参与或换绑账号会导致奖励领取异常 请用户在活动页面 中查看自己的中奖信息 活动过程中 凡以不正当手段 如作弊领取 违规注册 恶意刷奖 刷信誉 虚假交易 扰乱系统 实施网络",
-  "create": "2026-01-19T00:00:00+08:00",
-  "schema_start": "2026-01-19T00:00:00+08:00",
-  "start": "2026-01-23T00:00:00+08:00",
-  "end": "2026-02-05T00:00:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/ZHprbPuWW2acsI0TVMOmQPyp/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20226774&c=0",
-  "id": "20226774",
-  "kind": "real",
-  "reward": "Q币",
-  "noise_hint": [
-   "喷漆",
-   "称号",
-   "积分"
-  ],
-  "_vague_rule": false,
-  "t1_source": "own_page_rule"
- },
- {
-  "game": "无畏契约",
-  "title": "无畏契约 活动",
-  "desc": "无畏契约S4赛季活动  无畏契约S4赛季活动 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 腾讯游戏 切换账号 瓦手 赛季活动 确认参与 Q币 云积分 渠道包注册且等级 领取 成功 领取成功 下载并注册 登录送专属称号 下载注册且账号等级达到 活动期间登录游戏 活动期间完成一场对局 每日完成一次任意模式对局 每日任意模式对局胜利数量 抽奖 奖励将在 账号 视频组件 按钮 掌上无畏契约 无畏契约国服官方助手 打瓦逛社区 就来 主要功能包括 好友 好友上线提醒 跨端聊天组队 便捷添加游戏好友 战绩 官方认定战绩评级系统 六维图战力评估 好友战绩随心查 推荐 抢先知晓版本内容 获取全部活动信息与电竞动态 福利 无畏契约专属道具奖励 快捷参与游戏活动领取游戏奖励 同城 支持查询附近玩家排名 附近网吧及线下活动 发现身边的瓦友 发表 便捷发布图文与视频 与瓦友交流瓦瓦心得 更多精彩模板等你来用 更多功能将会持续更新 欢迎每一位瓦友的建议与反馈 哪吒之魔童降世 我命由我不由天 图片组件 战术射击 全员皆是英雄 以经典的爆破模式为核心玩法 搭配众多拥有独特技能与清晰",
-  "create": "2026-02-03T00:00:00+08:00",
-  "schema_start": "2026-02-03T00:00:00+08:00",
-  "start": "2026-02-05T00:00:00+08:00",
-  "end": "2026-04-08T00:00:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/yaJaQEgTME0W1JPSPyLCy0to/static/index.html?preload=1&ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20226940&c=0",
-  "id": "20226940",
-  "kind": "real",
-  "reward": "Q币",
-  "noise_hint": [
-   "枪械",
-   "喷漆",
-   "称号"
-  ],
-  "_vague_rule": false,
-  "t1_source": "own_page_rule"
- },
- {
-  "game": "无畏契约",
-  "title": "无畏契约 活动",
-  "desc": "无畏契约S5预约活动  无畏契约S5预约活动 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 腾讯游戏 切换账号 瓦手 新版本 预约活动 确认参与 互娱联运订阅按钮 破棘新生 正式上线 谢谢参与 订阅 已订阅 节点已过期 登录送专属称号 领取 成功 领取成功 下载并注册 下载注册且账号等级达到 预约领取 回游 云积分 玩家上次登录游戏 视频组件 按钮 掌上无畏契约 游戏中心 跳转 查询 Q币 积分 默认图片 战术射击 全员皆是英雄 以经典的爆破模式为核心玩法 搭配众多拥有独特技能与清晰明确定位的英雄角色 结合风格不同的各类地图 让每一位玩家都能在游戏中尽情发挥战术与枪法 体会到专属自己的游戏乐趣 爽快射击 一瞬即炸 开发团队历经多年潜心雕琢 精心打磨击杀反馈机制 力求为玩家带来极致体验 搭配 把特性各异的基础枪械及近战武器 以及数百款各具特色的皮肤 满足玩家不同射击偏好的同时 也为战斗带来独一无二的爽快感 潮流文化 年轻人备受喜爱的射击 沿用无畏契约端游品牌的潮流品质 作为近年来备受玩家喜爱的射击 将继续引领移动端射击游戏的潮流文化 为广大玩家带来更多精",
-  "create": "2026-03-23T00:00:00+08:00",
-  "schema_start": "2026-03-23T00:00:00+08:00",
-  "start": "2026-03-26T00:00:00+08:00",
-  "end": "2026-04-08T00:00:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/ix5tSg2VoPQc84yT7PnSeLbv/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20227448&c=0",
-  "id": "20227448",
-  "kind": "real",
-  "reward": "Q币",
-  "noise_hint": [
-   "枪械",
-   "喷漆",
-   "称号"
-  ],
-  "_vague_rule": false,
-  "t1_source": "own_page_rule"
- },
- {
-  "game": "无畏契约",
-  "title": "无畏契约 活动",
-  "desc": "无畏契约：源能行动S5赛季活动  无畏契约：源能行动S5赛季活动 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 腾讯游戏 切换账号 瓦手 赛季活动 确认参与 Q币 云积分 渠道包注册且等级 领取 成功 领取成功 活动期间内登录 登录送专属称号 下载并注册 下载注册且账号等级达到 每日完成一次任意模式对局 每日任意模式对局胜利数量 下载并注册等级满 天内未登录用户 活动期间完成一场对局 奖励将在 账号 抽奖 按钮 掌上无畏契约 视频组件 图片组件 游戏中心 跳转 查询 积分 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号我也钛能打了 礼包总数量 角色等级达到 级后 还能获得独家永久喷漆 渠道平台专属加赠 登录 次游戏即可领取专属称号超级外向 登录游戏即可领取专属为什么那么热称号 游戏内完成一场对局即可领取专属无毒无害 喷漆 活动期间在游戏中心首次下载注册 且等级达到 级可领 礼包数量共 数量有限先到先得 活动期间内 在游戏中心注册且近 日未登录用户 通过本页登录游戏即可领 渠道免费抽奖活动 每日任务 活动期间 获得 次抽奖机会 每日完成一",
-  "create": "2026-04-01T00:00:00+08:00",
-  "schema_start": "2026-04-01T00:00:00+08:00",
-  "start": "2026-04-09T00:00:00+08:00",
-  "end": "2026-06-05T00:00:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/Ev4O1orJA1kOLd6IMbaY5wYD/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20227557&c=0",
-  "id": "20227557",
-  "kind": "real",
-  "reward": "Q币",
-  "noise_hint": [
-   "喷漆",
-   "称号",
-   "积分"
-  ],
-  "_vague_rule": false,
-  "t1_source": "own_page_rule"
- },
- {
-  "game": "无畏契约",
-  "title": "无畏契约 活动",
-  "desc": "无畏契约：源能活动 暑假新版本  无畏契约：源能活动 暑假新版本 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 互娱联运订阅按钮 瓦手新赛季折光异境 日正式上线 谢谢参与 订阅 已订阅 节点已过期 腾讯游戏 瓦手 新版本 预约活动 切换账号 确认参与 云积分 渠道包注册且等级 领取 成功 领取成功 天内未登录用户 预约领取 登录送专属称号 下载并注册 下载注册且账号等级达到 掌上无畏契约 跳转 查询 Q币 积分 图片组件 游戏中心 默认图片 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号我也钛能打了 礼包总数量 角色等级达到 级后 还能获得独家永久喷漆 平台专属加赠 登录 次游戏即可领取专属称号超级外向 预约并且登录游戏即可领取专属称号无法运算 喷漆 活动期间在游戏中心首次下载注册 且等级达到 级可领 礼包数量共 数量有限先到先得 活动期间内 在游戏中心注册且近 日未登录用户 通过本页登录游戏即可领 注意事项 活动期间内同类型活动只能参与一次 限制同一个游戏账号多平台参与或换绑账号会导致奖励领取异常 请用户在活动页面 中查看自己的中奖信",
-  "create": "2026-05-21T00:00:00+08:00",
-  "schema_start": "2026-05-21T00:00:00+08:00",
-  "start": "2026-05-25T00:00:00+08:00",
-  "end": "2026-06-10T00:00:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/NonCk9pllU9lNtpvRCFQaix0/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20228281&c=0",
-  "id": "20228281",
-  "kind": "real",
-  "reward": "Q币",
-  "noise_hint": [
-   "喷漆",
-   "称号",
-   "积分"
-  ],
-  "_vague_rule": false,
-  "t1_source": "own_page_rule"
- },
- {
-  "game": "无畏契约",
-  "title": "无畏契约 活动",
-  "desc": "无畏契约 折光异境新赛季  无畏契约 折光异境新赛季 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 源能行动 领奖 腾讯游戏 瓦手 新赛季活动 切换账号 确认参与 Q币 云积分 渠道包注册且等级 领取 成功 领取成功 活动期间内登录 天内未登录用户 活动期间完成一场对局 登录送专属称号 下载并注册 下载注册且账号等级达到 每日完成一次任意模式对局 每日任意模式对局胜利数量 奖励将在 账号 抽奖 按钮 掌上无畏契约 图片组件 游戏中心 跳转 查询 积分 默认图片 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号我也钛能打了 礼包总数量 角色等级达到 级后 还能获得独家永久喷漆 渠道平台专属加赠 登录 次游戏即可领取专属称号超级外向 高手不玩虚招 喷漆 登录并且对局一场游戏即可领取专属称号亚海悬城 卡面 活动期间在游戏中心首次下载注册 且等级达到 级可领 礼包数量共 数量有限先到先得 活动期间内 在游戏中心注册且近 日未登录用户 通过本页登录游戏即可领 渠道免费抽奖活动 每日任务 活动期间 获得 次抽奖机会 每日完成一次任意对局 单次抽奖消耗 奖励名称 数量 概率 赛",
-  "create": "2026-06-05T00:00:00+08:00",
-  "schema_start": "2026-06-05T00:00:00+08:00",
-  "start": "2026-06-11T00:00:00+08:00",
-  "end": "2026-08-03T00:00:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/Ba1BiS2xFq5YKjIELCJaJJ3Q/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20228564&c=0",
-  "id": "20228564",
-  "kind": "real",
-  "reward": "Q币",
-  "noise_hint": [
-   "喷漆",
-   "称号",
-   "积分"
-  ],
-  "_vague_rule": false,
-  "t1_source": "own_page_rule"
- },
- {
   "game": "王者万象棋",
   "title": "王者荣耀 签到赢好礼！《王者万象棋》9月10日上线！",
   "desc": "《王者荣耀》9月签到赢好礼 活动 《王者荣耀》9月签到赢好礼 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 王者荣耀 领奖 腾讯游戏 王者 相关活动 跳转 记录 切换账号 确认参与 登录 第一天 领取 成功 奖品已发放 第二天 第三天 第四天 第五天 第六天 第七天 按钮 互娱 游戏中心 图片组件 活动规则 活动时间 即日起 分止 活动规则说明 活动期间 用户累计登录达到指定天数可领取对应道具奖励 获奖用户可点击 查看奖励信息 游戏道具领取后将发送至游戏内邮箱 活动期间单奖励仅限领取一次 签到奖励说明 登录天数 奖品内容 累计登录 钻石 大喇叭 铭文碎片 小心心 英雄体验卡自选宝箱 亲密玫瑰 史诗皮肤体验自选宝箱 月签到赢好礼",
@@ -1027,100 +810,218 @@
   "t1_conflict": "2026-09-09T08:00:00+08:00/快爆"
  },
  {
-  "game": "王者万象棋",
-  "title": "王者万象棋 活动",
-  "desc": "《王者万象棋》首发活动  《王者万象棋》首发活动 新页面 默认页面 背景图组件 定位容器 腾讯游戏 王者万象棋 日上线 首发活动 专属注册礼包 领取 成功 奖品已发放 累计登录 视频组件 互娱 游戏中心 预约礼包 预下载礼包 注册 完成 场游戏对局 段位达到青铜 段位达到白银 奖励将在 账号 奖池 注册赢 Q币 切换账号 确认参与 跳转 记录 积分 图片组件 正在跳转 互娱下载按钮 正版王者英雄自走棋 领奖 规则 活动时间 日至 抽奖活动将于 日游戏开服后开启 活动规则 下载注册抽 活动期间 首次在本渠道下载注册的用户 在页面成功绑定角色后 即可参与本页面活动 个人角色段位达到 白银 可获得注册红包抽奖机会 奖励数量有限 先到先得发完即止 详情请见奖池公示 每位自然人用户仅能使用一个自己合法有效的游戏账号参与本活动 如使用自己名下多个账号或使用他人账号 您的全部参与行为将被视为无效 且无权获得任何奖品 用户仅能在首次注册角色的渠道参与活动 同一账号无法重复参与其他渠道的活动 账号行为异常或存在安全风险 无法参与活动或领取奖励 注册红包奖池公示 奖励明细 单次抽奖概率 奖池总份数 补签卡",
-  "create": "2026-09-01T00:00:00+08:00",
-  "schema_start": "2026-09-01T00:00:00+08:00",
-  "start": "2026-09-09T00:00:00+08:00",
-  "end": "2026-10-10T00:00:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/4rUI2wI1dXwL9tmmgQK4RcPU/static/index.html?ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20230165&channelName=game_detail_h5&adtag=",
-  "id": "20230165",
+  "game": "无畏契约",
+  "title": "无畏契约 活动",
+  "desc": "无畏契约手游一周年活动  无畏契约手游一周年活动 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 腾讯游戏 切换账号 手瓦 赛季活动 确认参与 Q币 云积分 渠道包注册且等级 领取 成功 领取成功 下载并注册 活动期间登录游戏 天内未登录用户 活动期间完成一场对局 下载注册且账号等级达到 按钮 掌上无畏契约 图片组件 互娱 游戏中心 默认图片 跳转 查询 积分 奖励将在 账号 抽奖 每日完成一次任意模式对局 每日任意模式对局胜利数量 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号我也钛能打了 礼包总数量 角色等级达到 级后 还能获得独家永久喷漆 渠道平台专属加赠 活动期间登录 次游戏即可领取专属称号 大卡 头像 登录并且对局一场游戏即可领取专属称号算你厉害 称号 活动期间在游戏中心首次下载注册 且等级达到 级可领 礼包数量共 数量有限先到先得 活动期间内 在游戏中心注册且近 日未登录用户 通过本页登录游戏即可领 渠道免费抽奖活动 每日任务 活动期间 获得 次抽奖机会 每日完成一次任意对局 单次抽奖消耗 奖励名称 数量 概率 墨武 套装 军",
+  "create": "2026-07-27T00:00:00+08:00",
+  "schema_start": "2026-07-27T00:00:00+08:00",
+  "start": "2026-08-04T00:00:00+08:00",
+  "end": "2026-09-21T00:00:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/X7laPiyhTe7KtNtZDWFxl4lg/static/index.html?ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20229461&channelName=game_detail_h5&adtag=",
+  "id": "20229461",
   "kind": "real",
-  "reward": "现金",
+  "reward": "Q币",
   "noise_hint": [
-   "体验卡",
-   "头像框",
+   "喷漆",
+   "称号",
    "积分"
-  ],
-  "_vague_rule": false,
-  "t1_source": "cross3_validated"
- },
- {
-  "game": "王者万象棋",
-  "title": "王者万象棋 落子万象以棋会友，进群聊攻略找搭子！",
-  "desc": "加俱乐部，遇好友领福利！ 活动 加俱乐部，遇好友领福利！ 新页面 默认页面 背景图组件 定位容器 图片组件 加俱乐部 遇好友领福利 内媒资源位 王者万象棋",
-  "create": "",
-  "schema_start": "2026-07-21T00:00:00+08:00",
-  "start": "2026-07-21T00:00:00+08:00",
-  "end": "2026-12-31T23:59:59+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/dcCrNH5xBDRZWxoNQyqpZqA0/static/index.html?ht=1&ls=2&actId=20229374&channelName=dlw&c=0",
-  "id": "20229374",
-  "kind": "noise",
-  "reward": null,
-  "noise_hint": [
-   "俱乐部",
-   "攻略"
-  ],
-  "_vague_rule": true,
-  "t1_source": "schema_only_unverified",
-  "t1_conflict": "2026-07-14T00:00:00+08:00/快爆"
- },
- {
-  "game": "王者万象棋",
-  "title": "王者万象棋 棋盘【演武沙盘】，参与活动免费领",
-  "desc": "《王者万象棋》棋盘【演武沙盘】，参与活动免费领  《王者万象棋》棋盘【演武沙盘】，参与活动免费领 新页面 默认页面 背景图组件 定位容器 腾讯游戏 权益 王者万象棋棋盘活动 您还未安装微信 不满足条件 已领取 预约和下载按钮 领取 王者万象棋 日上线 图片组件 规则 棋盘 演武沙盘 参与活动免费领 活动时间 即日起 点击前往小程序参加活动 注意 部分玩家开服前领取的奖励 注册角色后未到账 奖励将在 个工作日内补发",
-  "create": "",
-  "schema_start": "2026-09-02T00:00:00+08:00",
-  "start": "2026-09-02T00:00:00+08:00",
-  "end": "2026-10-30T23:59:59+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/QkTE8Dd3uU0gMaoRNLzcJmZN/static/index.html?ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20230166",
-  "id": "20230166",
-  "kind": "noise",
-  "reward": null,
-  "noise_hint": [
-   "预约"
-  ],
-  "_vague_rule": true,
-  "t1_source": "schema_only_unverified",
-  "t1_conflict": "2026-07-14T00:00:00+08:00/快爆"
- },
- {
-  "game": "王者万象棋",
-  "title": "王者万象棋 截止9月15日：预约活动红包领取页",
-  "desc": "《王者万象棋》9月10日正式上线！预约抽现金红包等奖励！  《王者万象棋》9月10日正式上线！预约抽现金红包等奖励！ 新页面 默认页面 背景图组件 定位容器 视频组件 王者万象棋邀你开启 王者万象 王者万象棋 游戏中心 腾讯游戏 权益 王者万象棋预约礼包 您还未安装 王者荣耀 不满足条件 已领取 图片组件 虚拟值组件 预约 预约任务 展示当前虚拟值 展示总获得虚拟值 根据当前虚拟值区间展示 根据总获得虚拟值区间展示 分享 分享任务 社区 社区任务 签到 签到任务 抢号预约任务 您还未安装微信 抢号分享任务 抢号浏览社区任务 分享组件 王者万象棋预约活动 机会 确定 媒体行为任务 领取 浏览社区抽奖机会 抢号 跳转 抢号俱乐部任务 俱乐部 成功加入王者万象棋俱乐部抽奖机会 无任务 成功加入 社群抽奖机会 预约抽王者皮肤 不可领取 预约王者万象棋头像框礼包 去领取 领取成功后 请前往 中兑换 需要安装 获得现金奖励的用户 提前绑定正确的支付宝账号 游戏上线后 在本渠道安装且打开游戏即可提现 内到账 红包预约 红包抽奖机会 王者万象棋定档 分享活动红包抽奖机会 成功加入社群红包抽奖机会 组队",
-  "create": "",
-  "schema_start": "2026-08-28T00:00:00+08:00",
-  "start": "2026-08-28T00:00:00+08:00",
-  "end": "2026-09-09T08:00:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/46QX1oESdBJ6Lozaja2eW6AI/static/index.html?ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20227649",
-  "id": "20227649",
-  "kind": "real",
-  "reward": "现金",
-  "noise_hint": [
-   "头像框",
-   "积分",
-   "俱乐部"
   ],
   "_vague_rule": false,
   "t1_source": "own_page_rule"
  },
  {
-  "game": "王者万象棋",
-  "title": "王者万象棋 活动",
-  "desc": "《王者万象棋》测试招募进行中  《王者万象棋》测试招募进行中 新页面 默认页面 背景图组件 定位容器 预约组件 王者万象棋 王者英雄自走棋 图片组件 腾讯游戏 权益 王者万象棋体验资格招募问卷链接 您还未安装微信 不满足条件 已领取 互娱 游戏中心 体验资格招募问卷链接 测试招募进行中",
+  "game": "无畏契约",
+  "title": "无畏契约 进群找靠谱队友，组队冲分，拿专属奖励",
+  "desc": "加入俱乐部，遇好友领福利！ 活动 加入俱乐部，遇好友领福利！ 新页面 默认页面 背景图组件 定位容器 图片组件 加入俱乐部 遇好友领福利 无畏契约 源能行动",
   "create": "",
-  "schema_start": "2026-08-04T00:00:00+08:00",
-  "start": "2026-08-04T00:00:00+08:00",
-  "end": "2026-08-30T23:59:59+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/WG6fy40IOZoCMYu7OTfWk4r7/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20229414",
-  "id": "20229414",
+  "schema_start": "2026-06-08T00:00:00+08:00",
+  "start": "2026-06-08T00:00:00+08:00",
+  "end": "2026-09-30T23:59:59+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/MiCBzLTZn8jTXAd5NqNbzGAp/static/index.html?ht=1&ls=2&actId=20228592&channelName=dlw&c=0",
+  "id": "20228592",
   "kind": "noise",
   "reward": null,
   "noise_hint": [
-   "测试招募",
-   "资格招募",
+   "俱乐部"
+  ],
+  "_vague_rule": true,
+  "t1_source": "schema_only_unverified",
+  "t1_conflict": "2026-09-04T00:00:00+08:00/快爆"
+ },
+ {
+  "game": "无畏契约",
+  "title": "无畏契约 预约《决胜新境》新版本，领专属好礼！",
+  "desc": "手瓦s8新版本《决胜新境》预约 活动 手瓦s8新版本《决胜新境》预约 新页面 默认页面 背景图组件 定位容器 互娱联运订阅按钮 无畏契约 源能行动 手瓦新版本现已上线 赛季 谢谢参与 订阅 已订阅 节点已过期 确定 腾讯游戏 手瓦 新版本预约活动 切换账号 确认参与 互娱下载按钮 领奖 云积分 渠道包注册且等级 领取 成功 领取成功 下载并注册 下载注册且账号等级达到 天内未登录用户 预约领取 新版本预约 登录 图片组件 掌上无畏契约 无畏契约国服官方助手 打瓦逛社区 就来 主要功能包括 好友 好友上线提醒 跨端聊天组队 便捷添加游戏好友 战绩 官方认定战绩评级系统 六维图战力评估 好友战绩随心查 推荐 抢先知晓版本内容 获取全部活动信息与电竞动态 福利 无畏契约专属道具奖励 快捷参与游戏活动领取游戏奖励 同城 支持查询附近玩家排名 附近网吧及线下活动 发现身边的瓦友 发表 便捷发布图文与视频 与瓦友交流瓦瓦心得 更多精彩模板等你来用 更多功能将会持续更新 欢迎每一位瓦友的建议与反馈 跳转 查询 Q币 积分 互娱 游戏中心 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号",
+  "create": "2026-09-04T00:00:00+08:00",
+  "schema_start": "2026-09-04T00:00:00+08:00",
+  "start": "2026-09-08T00:00:00+08:00",
+  "end": "2026-09-21T00:00:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/mnChBICXruTiHzB6emsz4E9o/static/index.html?preload=1&ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20230162&c=0&autoIntermodalSubscribe=1",
+  "id": "20230162",
+  "kind": "real",
+  "reward": "Q币",
+  "noise_hint": [
+   "喷漆",
+   "称号",
+   "积分"
+  ],
+  "_vague_rule": false,
+  "t1_source": "own_page_rule"
+ },
+ {
+  "game": "无畏契约",
+  "title": "无畏契约 活动",
+  "desc": "无畏契约手游新版本预约活动",
+  "create": "",
+  "schema_start": "",
+  "start": "",
+  "end": "",
+  "url": "https://ie-activity-cn.heytapimage.com/ie-activity/staticActivity/6pedeA/htmls/index.html?uActId=21960&actId=20226177&bizType=ie&at=1&ta=0&immersive=3&c=0&ts=0&preload=1&autoIntermodalSubscribe=1",
+  "id": "20226177",
+  "kind": "noise",
+  "reward": null,
+  "noise_hint": [
+   "新版本预约",
    "预约"
+  ],
+  "_vague_rule": false
+ },
+ {
+  "game": "无畏契约",
+  "title": "无畏契约 活动",
+  "desc": "无畏契约手游S3赛季活动  无畏契约手游S3赛季活动 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 腾讯游戏 瓦手 赛季活动 切换账号 确认参与 新版本登录送专属礼物 领取 成功 领取成功 登录送专属称号 下载并注册 完成 场对局 下载注册且账号等级达到 每日完成一次任意模式对局 每日任意模式对局胜利数量 视频组件 抽奖 奖励将在 账号 按钮 掌上无畏契约 无畏契约国服官方助手 打瓦逛社区 就来 主要功能包括 好友 好友上线提醒 跨端聊天组队 便捷添加游戏好友 战绩 官方认定战绩评级系统 六维图战力评估 好友战绩随心查 推荐 抢先知晓版本内容 获取全部活动信息与电竞动态 福利 无畏契约专属道具奖励 快捷参与游戏活动领取游戏奖励 同城 支持查询附近玩家排名 附近网吧及线下活动 发现身边的瓦友 发表 便捷发布图文与视频 与瓦友交流瓦瓦心得 更多精彩模板等你来用 更多功能将会持续更新 欢迎每一位瓦友的建议与反馈 哪吒之魔童降世 我命由我不由天 默认图片 轮播 图片组件 战术射击 全员皆是英雄 以经典的爆破模式为核心玩法 搭配众多拥有独特技能与清晰明确定位的英",
+  "create": "2025-12-15T00:00:00+08:00",
+  "schema_start": "2025-12-15T00:00:00+08:00",
+  "start": "2025-12-18T00:00:00+08:00",
+  "end": "2026-02-03T00:00:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/MrMWMsrT7Ndwmc6aHub4nkt9/static/index.html?preload=1&ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20226396&c=0",
+  "id": "20226396",
+  "kind": "real",
+  "reward": "Q币",
+  "noise_hint": [
+   "枪械",
+   "喷漆",
+   "称号"
+  ],
+  "_vague_rule": false,
+  "t1_source": "own_page_rule"
+ },
+ {
+  "game": "无畏契约",
+  "title": "无畏契约 活动",
+  "desc": "无畏契约新春版本预约活动  无畏契约新春版本预约活动 新页面 默认页面 背景图组件 定位容器 腾讯游戏 无畏契约 源能行动 瓦手 新版本 预约活动 切换账号 确认参与 云积分 领取 成功 领取成功 预约领取 下载并注册 登录送专属称号 下载注册且账号等级达到 跳转 查询 Q币 积分 默认图片 视频组件 图片组件 按钮 掌上无畏契约 互娱下载按钮 领奖 游戏中心 互娱联运订阅按钮 无畏契约手游新版本 日正式上线 谢谢参与 确定 订阅 已订阅 节点已过期 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号我也钛能打了 礼包总数量 角色等级达到 级后 还能获得独家永久喷漆 渠道平台专属加赠 预约后登录 次游戏即可领取专属称号超级外向 完成 场对局即可领取上钩 喷漆 活动期间在游戏中心首次下载注册 且等级达到 级可领 礼包数量共 数量有限先到先得 注意事项 活动期间内同类型活动只能参与一次 限制同一个游戏账号多平台参与或换绑账号会导致奖励领取异常 请用户在活动页面 中查看自己的中奖信息 活动过程中 凡以不正当手段 如作弊领取 违规注册 恶意刷奖 刷信誉 虚假交易 扰乱系统 实施网络",
+  "create": "2026-01-19T00:00:00+08:00",
+  "schema_start": "2026-01-19T00:00:00+08:00",
+  "start": "2026-01-23T00:00:00+08:00",
+  "end": "2026-02-05T00:00:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/ZHprbPuWW2acsI0TVMOmQPyp/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20226774&c=0",
+  "id": "20226774",
+  "kind": "real",
+  "reward": "Q币",
+  "noise_hint": [
+   "喷漆",
+   "称号",
+   "积分"
+  ],
+  "_vague_rule": false,
+  "t1_source": "own_page_rule"
+ },
+ {
+  "game": "无畏契约",
+  "title": "无畏契约 活动",
+  "desc": "无畏契约S4赛季活动  无畏契约S4赛季活动 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 腾讯游戏 切换账号 瓦手 赛季活动 确认参与 Q币 云积分 渠道包注册且等级 领取 成功 领取成功 下载并注册 登录送专属称号 下载注册且账号等级达到 活动期间登录游戏 活动期间完成一场对局 每日完成一次任意模式对局 每日任意模式对局胜利数量 抽奖 奖励将在 账号 视频组件 按钮 掌上无畏契约 无畏契约国服官方助手 打瓦逛社区 就来 主要功能包括 好友 好友上线提醒 跨端聊天组队 便捷添加游戏好友 战绩 官方认定战绩评级系统 六维图战力评估 好友战绩随心查 推荐 抢先知晓版本内容 获取全部活动信息与电竞动态 福利 无畏契约专属道具奖励 快捷参与游戏活动领取游戏奖励 同城 支持查询附近玩家排名 附近网吧及线下活动 发现身边的瓦友 发表 便捷发布图文与视频 与瓦友交流瓦瓦心得 更多精彩模板等你来用 更多功能将会持续更新 欢迎每一位瓦友的建议与反馈 哪吒之魔童降世 我命由我不由天 图片组件 战术射击 全员皆是英雄 以经典的爆破模式为核心玩法 搭配众多拥有独特技能与清晰",
+  "create": "2026-02-03T00:00:00+08:00",
+  "schema_start": "2026-02-03T00:00:00+08:00",
+  "start": "2026-02-05T00:00:00+08:00",
+  "end": "2026-04-08T00:00:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/yaJaQEgTME0W1JPSPyLCy0to/static/index.html?preload=1&ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20226940&c=0",
+  "id": "20226940",
+  "kind": "real",
+  "reward": "Q币",
+  "noise_hint": [
+   "枪械",
+   "喷漆",
+   "称号"
+  ],
+  "_vague_rule": false,
+  "t1_source": "own_page_rule"
+ },
+ {
+  "game": "无畏契约",
+  "title": "无畏契约 活动",
+  "desc": "无畏契约S5预约活动  无畏契约S5预约活动 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 腾讯游戏 切换账号 瓦手 新版本 预约活动 确认参与 互娱联运订阅按钮 破棘新生 正式上线 谢谢参与 订阅 已订阅 节点已过期 登录送专属称号 领取 成功 领取成功 下载并注册 下载注册且账号等级达到 预约领取 回游 云积分 玩家上次登录游戏 视频组件 按钮 掌上无畏契约 游戏中心 跳转 查询 Q币 积分 默认图片 战术射击 全员皆是英雄 以经典的爆破模式为核心玩法 搭配众多拥有独特技能与清晰明确定位的英雄角色 结合风格不同的各类地图 让每一位玩家都能在游戏中尽情发挥战术与枪法 体会到专属自己的游戏乐趣 爽快射击 一瞬即炸 开发团队历经多年潜心雕琢 精心打磨击杀反馈机制 力求为玩家带来极致体验 搭配 把特性各异的基础枪械及近战武器 以及数百款各具特色的皮肤 满足玩家不同射击偏好的同时 也为战斗带来独一无二的爽快感 潮流文化 年轻人备受喜爱的射击 沿用无畏契约端游品牌的潮流品质 作为近年来备受玩家喜爱的射击 将继续引领移动端射击游戏的潮流文化 为广大玩家带来更多精",
+  "create": "2026-03-23T00:00:00+08:00",
+  "schema_start": "2026-03-23T00:00:00+08:00",
+  "start": "2026-03-26T00:00:00+08:00",
+  "end": "2026-04-08T00:00:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/ix5tSg2VoPQc84yT7PnSeLbv/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20227448&c=0",
+  "id": "20227448",
+  "kind": "real",
+  "reward": "Q币",
+  "noise_hint": [
+   "枪械",
+   "喷漆",
+   "称号"
+  ],
+  "_vague_rule": false,
+  "t1_source": "own_page_rule"
+ },
+ {
+  "game": "无畏契约",
+  "title": "无畏契约 活动",
+  "desc": "无畏契约：源能行动S5赛季活动  无畏契约：源能行动S5赛季活动 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 腾讯游戏 切换账号 瓦手 赛季活动 确认参与 Q币 云积分 渠道包注册且等级 领取 成功 领取成功 活动期间内登录 登录送专属称号 下载并注册 下载注册且账号等级达到 每日完成一次任意模式对局 每日任意模式对局胜利数量 下载并注册等级满 天内未登录用户 活动期间完成一场对局 奖励将在 账号 抽奖 按钮 掌上无畏契约 视频组件 图片组件 游戏中心 跳转 查询 积分 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号我也钛能打了 礼包总数量 角色等级达到 级后 还能获得独家永久喷漆 渠道平台专属加赠 登录 次游戏即可领取专属称号超级外向 登录游戏即可领取专属为什么那么热称号 游戏内完成一场对局即可领取专属无毒无害 喷漆 活动期间在游戏中心首次下载注册 且等级达到 级可领 礼包数量共 数量有限先到先得 活动期间内 在游戏中心注册且近 日未登录用户 通过本页登录游戏即可领 渠道免费抽奖活动 每日任务 活动期间 获得 次抽奖机会 每日完成一",
+  "create": "2026-04-01T00:00:00+08:00",
+  "schema_start": "2026-04-01T00:00:00+08:00",
+  "start": "2026-04-09T00:00:00+08:00",
+  "end": "2026-06-05T00:00:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/Ev4O1orJA1kOLd6IMbaY5wYD/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20227557&c=0",
+  "id": "20227557",
+  "kind": "real",
+  "reward": "Q币",
+  "noise_hint": [
+   "喷漆",
+   "称号",
+   "积分"
+  ],
+  "_vague_rule": false,
+  "t1_source": "own_page_rule"
+ },
+ {
+  "game": "无畏契约",
+  "title": "无畏契约 活动",
+  "desc": "无畏契约：源能活动 暑假新版本  无畏契约：源能活动 暑假新版本 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 无畏契约 源能行动 领奖 互娱联运订阅按钮 瓦手新赛季折光异境 日正式上线 谢谢参与 订阅 已订阅 节点已过期 腾讯游戏 瓦手 新版本 预约活动 切换账号 确认参与 云积分 渠道包注册且等级 领取 成功 领取成功 天内未登录用户 预约领取 登录送专属称号 下载并注册 下载注册且账号等级达到 掌上无畏契约 跳转 查询 Q币 积分 图片组件 游戏中心 默认图片 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号我也钛能打了 礼包总数量 角色等级达到 级后 还能获得独家永久喷漆 平台专属加赠 登录 次游戏即可领取专属称号超级外向 预约并且登录游戏即可领取专属称号无法运算 喷漆 活动期间在游戏中心首次下载注册 且等级达到 级可领 礼包数量共 数量有限先到先得 活动期间内 在游戏中心注册且近 日未登录用户 通过本页登录游戏即可领 注意事项 活动期间内同类型活动只能参与一次 限制同一个游戏账号多平台参与或换绑账号会导致奖励领取异常 请用户在活动页面 中查看自己的中奖信",
+  "create": "2026-05-21T00:00:00+08:00",
+  "schema_start": "2026-05-21T00:00:00+08:00",
+  "start": "2026-05-25T00:00:00+08:00",
+  "end": "2026-06-10T00:00:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/NonCk9pllU9lNtpvRCFQaix0/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20228281&c=0",
+  "id": "20228281",
+  "kind": "real",
+  "reward": "Q币",
+  "noise_hint": [
+   "喷漆",
+   "称号",
+   "积分"
+  ],
+  "_vague_rule": false,
+  "t1_source": "own_page_rule"
+ },
+ {
+  "game": "无畏契约",
+  "title": "无畏契约 活动",
+  "desc": "无畏契约 折光异境新赛季  无畏契约 折光异境新赛季 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 源能行动 领奖 腾讯游戏 瓦手 新赛季活动 切换账号 确认参与 Q币 云积分 渠道包注册且等级 领取 成功 领取成功 活动期间内登录 天内未登录用户 活动期间完成一场对局 登录送专属称号 下载并注册 下载注册且账号等级达到 每日完成一次任意模式对局 每日任意模式对局胜利数量 奖励将在 账号 抽奖 按钮 掌上无畏契约 图片组件 游戏中心 跳转 查询 积分 默认图片 活动规则 活动时间 渠道独家专属福利 注册游戏即可领取定制称号我也钛能打了 礼包总数量 角色等级达到 级后 还能获得独家永久喷漆 渠道平台专属加赠 登录 次游戏即可领取专属称号超级外向 高手不玩虚招 喷漆 登录并且对局一场游戏即可领取专属称号亚海悬城 卡面 活动期间在游戏中心首次下载注册 且等级达到 级可领 礼包数量共 数量有限先到先得 活动期间内 在游戏中心注册且近 日未登录用户 通过本页登录游戏即可领 渠道免费抽奖活动 每日任务 活动期间 获得 次抽奖机会 每日完成一次任意对局 单次抽奖消耗 奖励名称 数量 概率 赛",
+  "create": "2026-06-05T00:00:00+08:00",
+  "schema_start": "2026-06-05T00:00:00+08:00",
+  "start": "2026-06-11T00:00:00+08:00",
+  "end": "2026-08-03T00:00:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/Ba1BiS2xFq5YKjIELCJaJJ3Q/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20228564&c=0",
+  "id": "20228564",
+  "kind": "real",
+  "reward": "Q币",
+  "noise_hint": [
+   "喷漆",
+   "称号",
+   "积分"
   ],
   "_vague_rule": false,
   "t1_source": "own_page_rule"
@@ -1684,6 +1585,105 @@
   "noise_hint": [
    "积分",
    "签到"
+  ],
+  "_vague_rule": false,
+  "t1_source": "own_page_rule"
+ },
+ {
+  "game": "王者万象棋",
+  "title": "王者万象棋 活动",
+  "desc": "《王者万象棋》首发活动  《王者万象棋》首发活动 新页面 默认页面 背景图组件 定位容器 腾讯游戏 王者万象棋 日上线 首发活动 专属注册礼包 领取 成功 奖品已发放 累计登录 视频组件 互娱 游戏中心 预约礼包 预下载礼包 注册 完成 场游戏对局 段位达到青铜 段位达到白银 奖励将在 账号 奖池 注册赢 Q币 切换账号 确认参与 跳转 记录 积分 图片组件 正在跳转 互娱下载按钮 正版王者英雄自走棋 领奖 规则 活动时间 日至 抽奖活动将于 日游戏开服后开启 活动规则 下载注册抽 活动期间 首次在本渠道下载注册的用户 在页面成功绑定角色后 即可参与本页面活动 个人角色段位达到 白银 可获得注册红包抽奖机会 奖励数量有限 先到先得发完即止 详情请见奖池公示 每位自然人用户仅能使用一个自己合法有效的游戏账号参与本活动 如使用自己名下多个账号或使用他人账号 您的全部参与行为将被视为无效 且无权获得任何奖品 用户仅能在首次注册角色的渠道参与活动 同一账号无法重复参与其他渠道的活动 账号行为异常或存在安全风险 无法参与活动或领取奖励 注册红包奖池公示 奖励明细 单次抽奖概率 奖池总份数 补签卡",
+  "create": "2026-09-01T00:00:00+08:00",
+  "schema_start": "2026-09-01T00:00:00+08:00",
+  "start": "2026-09-09T00:00:00+08:00",
+  "end": "2026-10-10T00:00:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/4rUI2wI1dXwL9tmmgQK4RcPU/static/index.html?ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20230165&channelName=game_detail_h5&adtag=",
+  "id": "20230165",
+  "kind": "real",
+  "reward": "现金",
+  "noise_hint": [
+   "体验卡",
+   "头像框",
+   "积分"
+  ],
+  "_vague_rule": false,
+  "t1_source": "cross3_validated"
+ },
+ {
+  "game": "王者万象棋",
+  "title": "王者万象棋 落子万象以棋会友，进群聊攻略找搭子！",
+  "desc": "加俱乐部，遇好友领福利！ 活动 加俱乐部，遇好友领福利！ 新页面 默认页面 背景图组件 定位容器 图片组件 加俱乐部 遇好友领福利 内媒资源位 王者万象棋",
+  "create": "",
+  "schema_start": "2026-07-21T00:00:00+08:00",
+  "start": "2026-07-21T00:00:00+08:00",
+  "end": "2026-12-31T23:59:59+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/dcCrNH5xBDRZWxoNQyqpZqA0/static/index.html?ht=1&ls=2&actId=20229374&channelName=dlw&c=0",
+  "id": "20229374",
+  "kind": "noise",
+  "reward": null,
+  "noise_hint": [
+   "俱乐部",
+   "攻略"
+  ],
+  "_vague_rule": true,
+  "t1_source": "schema_only_unverified",
+  "t1_conflict": "2026-07-14T00:00:00+08:00/快爆"
+ },
+ {
+  "game": "王者万象棋",
+  "title": "王者万象棋 棋盘【演武沙盘】，参与活动免费领",
+  "desc": "《王者万象棋》棋盘【演武沙盘】，参与活动免费领  《王者万象棋》棋盘【演武沙盘】，参与活动免费领 新页面 默认页面 背景图组件 定位容器 腾讯游戏 权益 王者万象棋棋盘活动 您还未安装微信 不满足条件 已领取 预约和下载按钮 领取 王者万象棋 日上线 图片组件 规则 棋盘 演武沙盘 参与活动免费领 活动时间 即日起 点击前往小程序参加活动 注意 部分玩家开服前领取的奖励 注册角色后未到账 奖励将在 个工作日内补发",
+  "create": "",
+  "schema_start": "2026-09-02T00:00:00+08:00",
+  "start": "2026-09-02T00:00:00+08:00",
+  "end": "2026-10-30T23:59:59+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/QkTE8Dd3uU0gMaoRNLzcJmZN/static/index.html?ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20230166",
+  "id": "20230166",
+  "kind": "noise",
+  "reward": null,
+  "noise_hint": [
+   "预约"
+  ],
+  "_vague_rule": true,
+  "t1_source": "schema_only_unverified",
+  "t1_conflict": "2026-07-14T00:00:00+08:00/快爆"
+ },
+ {
+  "game": "王者万象棋",
+  "title": "王者万象棋 截止9月15日：预约活动红包领取页",
+  "desc": "《王者万象棋》9月10日正式上线！预约抽现金红包等奖励！  《王者万象棋》9月10日正式上线！预约抽现金红包等奖励！ 新页面 默认页面 背景图组件 定位容器 视频组件 王者万象棋邀你开启 王者万象 王者万象棋 游戏中心 腾讯游戏 权益 王者万象棋预约礼包 您还未安装 王者荣耀 不满足条件 已领取 图片组件 虚拟值组件 预约 预约任务 展示当前虚拟值 展示总获得虚拟值 根据当前虚拟值区间展示 根据总获得虚拟值区间展示 分享 分享任务 社区 社区任务 签到 签到任务 抢号预约任务 您还未安装微信 抢号分享任务 抢号浏览社区任务 分享组件 王者万象棋预约活动 机会 确定 媒体行为任务 领取 浏览社区抽奖机会 抢号 跳转 抢号俱乐部任务 俱乐部 成功加入王者万象棋俱乐部抽奖机会 无任务 成功加入 社群抽奖机会 预约抽王者皮肤 不可领取 预约王者万象棋头像框礼包 去领取 领取成功后 请前往 中兑换 需要安装 获得现金奖励的用户 提前绑定正确的支付宝账号 游戏上线后 在本渠道安装且打开游戏即可提现 内到账 红包预约 红包抽奖机会 王者万象棋定档 分享活动红包抽奖机会 成功加入社群红包抽奖机会 组队",
+  "create": "",
+  "schema_start": "2026-08-28T00:00:00+08:00",
+  "start": "2026-08-28T00:00:00+08:00",
+  "end": "2026-09-09T08:00:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/46QX1oESdBJ6Lozaja2eW6AI/static/index.html?ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20227649",
+  "id": "20227649",
+  "kind": "real",
+  "reward": "现金",
+  "noise_hint": [
+   "头像框",
+   "积分",
+   "俱乐部"
+  ],
+  "_vague_rule": false,
+  "t1_source": "own_page_rule"
+ },
+ {
+  "game": "王者万象棋",
+  "title": "王者万象棋 活动",
+  "desc": "《王者万象棋》测试招募进行中  《王者万象棋》测试招募进行中 新页面 默认页面 背景图组件 定位容器 预约组件 王者万象棋 王者英雄自走棋 图片组件 腾讯游戏 权益 王者万象棋体验资格招募问卷链接 您还未安装微信 不满足条件 已领取 互娱 游戏中心 体验资格招募问卷链接 测试招募进行中",
+  "create": "",
+  "schema_start": "2026-08-04T00:00:00+08:00",
+  "start": "2026-08-04T00:00:00+08:00",
+  "end": "2026-08-30T23:59:59+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/WG6fy40IOZoCMYu7OTfWk4r7/static/index.html?ht=1&isShowLoading=false&ls=3&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20229414",
+  "id": "20229414",
+  "kind": "noise",
+  "reward": null,
+  "noise_hint": [
+   "测试招募",
+   "资格招募",
+   "预约"
   ],
   "_vague_rule": false,
   "t1_source": "own_page_rule"
@@ -2276,6 +2276,57 @@
   "t1_source": "own_page_rule"
  },
  {
+  "game": "冒险岛：枫之传说",
+  "title": "冒险岛：枫之传说 活动",
+  "desc": "《冒险岛》3周年庆  《冒险岛》3周年庆 新页面 默认页面 背景图组件 定位容器 图片组件 腾讯游戏 切换账号 冒险岛 枫之传说 路西德上线 冒险岛三周年 活动 确认参与 互娱下载按钮 抽奖机会 确定 领奖 回归礼包 领取 成功 连登礼包 新版本注册礼包 回归 Q币 兑换资格 请前往 兑换吧 互娱隐形抽奖 手机 耳机 元京东卡 智能音响 谢谢参与 剩余 奖品概率 跳转 正在跳转 查询 积分 活动规则 活动时间 活动参与资格 活动期间进入活动页面的 游戏用户 活动玩法 活动期间 玩家在本页面完成任务 符合条件 即可获得对应的 或者礼包 活动所有奖励优先 先到先得 发完即止 玩家页面下载打开游戏 即可获得抽奖机会 总计 概率 京东卡 奖品发放与奖品说明 礼包发放方式为 发放至绑定的角色邮箱 每个游戏角色活动期间限领一次 每个 账号活动期间仅限参加一次 奖励发放方式为 需要玩家点击页面 前往微信小程序 登录需要领取 才会发放到指定的 号上 单个 单个类型奖励只会获得一次 若玩家存在切换账号重复领取 了到同一 视为非法刷奖 将不会到账 若玩家在其他平台领取过同类型奖励 也无法领取该奖励 实物奖",
+  "create": "2026-08-07T10:00:00+08:00",
+  "schema_start": "2026-08-07T10:00:00+08:00",
+  "start": "2026-08-12T00:00:00+08:00",
+  "end": "2026-09-13T23:59:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/GdTvHuXlzDhd0etr31tkpUPH/static/index.html?ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20229694&channelName=game_detail_h5&adtag=",
+  "id": "20229694",
+  "kind": "real",
+  "reward": "Q币",
+  "noise_hint": [
+   "积分"
+  ],
+  "_vague_rule": false,
+  "t1_source": "own_page_rule"
+ },
+ {
+  "game": "完美世界",
+  "title": "完美世界 活动",
+  "desc": "《完美世界》全新资料片  《完美世界》全新资料片 新页面 默认页面 背景图组件 定位容器 图片组件 腾讯游戏 切换账号 完美世界 月掉宝资料片 确认参与 互娱下载按钮 领奖 注册礼包 领取 成功 签到第一天 签到第二天 签到第三天 签到第四天 签到第五天 签到第六天 签到第七天   兑换 充值返利抽奖 互娱 游戏中心 跳转 领奖记录 查询 哪吒 登顶 全球动画电影票房榜 哪吒之魔童闹海 哪吒敖丙喜感 复活 哪吒之魔童脑海 哪吒敖丙再续前缘 哪吒之魔童降世 全球百亿国产大片前作 我命由我不由天 活动规则 活动时间 活动参与资格 活动期间进入活动页面的 游戏用户 活动玩法 活动期间 玩家在本页面完成任务 符合条件 即可获得对应的 或者礼包 活动所有奖励优先 先到先得 发完即止 奖品发放与奖品说明 礼包发放方式为 发放至绑定的角色邮箱 每个游戏角色活动期间限领一次 每个 账号活动期间仅限参加一次 奖励发放方式为 需要玩家点击页面 前往微信小程序 登录需要领取 才会发放到指定的 号上 单个 单个类型奖励只会获得一次 若玩家存在切换账号重复领取 了到同一 视为非法刷奖 将不会到账 若玩家在其他平",
+  "create": "2026-07-15T00:00:00+08:00",
+  "schema_start": "2026-07-15T00:00:00+08:00",
+  "start": "2026-07-17T00:00:00+08:00",
+  "end": "2026-09-30T23:59:00+08:00",
+  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/0wSjUzAZLfeR7Mvcj2bRjzWG/static/index.html?at=1&ta=0&ht=1&ts=1&isGradualToolbar=true&isTranslucentBar=true&fc=0&sc=0&isShowLoading=false&immersive=4&ls=3&__pf__=detail&__barStyle__=0_2&toolbarType=3",
+  "id": "ae50ff9c18ba7e3e",
+  "kind": "noise",
+  "reward": null,
+  "noise_hint": [
+   "签到"
+  ],
+  "_vague_rule": false,
+  "t1_source": "own_page_rule"
+ },
+ {
+  "game": "完美世界",
+  "title": "完美世界 活动",
+  "desc": "环境不支持 微信引导图",
+  "create": "",
+  "schema_start": "",
+  "start": "",
+  "end": "",
+  "url": "https://activity-cdo.heytapimage.com/cdo-activity/staticActivity/Xmo6rM/htmls/Xmo6rM.html?actId=59085&c=0&at=1&ta=0&c=0&ht=1&preload=1",
+  "id": "59085",
+  "kind": "noise",
+  "reward": null,
+  "noise_hint": [],
+  "_vague_rule": false
+ },
+ {
   "game": "洛克王国：世界",
   "title": "洛克王国：世界 活动",
   "desc": "《洛克王国：世界》S4赛季月涌狂想开启  《洛克王国：世界》S4赛季月涌狂想开启 新页面 默认页面 背景图组件 定位容器 互娱下载按钮 洛克王国 世界 领奖 腾讯游戏 赛季 新版本活动 切换账号 确认参与 新赛季专属登录礼 领取 成功 奖品已发放 Q币 兑换积分 新赛季注册福利 新赛季专属回归礼 奖励将在 账号 抽奖活动奖励 查询 下载游戏 活动期间首次下载 登录游戏 魔法等级达到 拥有 只精灵 图片组件 视频组件 互娱 游戏中心 跳转 积分 规则 活动时间 新赛季登录礼 新赛季登录游戏即可领取 每个账号仅限领取 新赛季专属福利 首次在 游戏中心下载并注册且游戏内等级达到 即可领取注册礼包以及抢 奖励 数量有限 先到先得 发完即止 奖励及 次注册礼包 新赛季回归礼 最近 天未登录游戏可领取回归礼包 九宫格抽奖规则 活动期间 首次下载 注册 登录 游戏内角色魔法等级 只精灵即可获得一次抽奖机会 单任务限一次 奖品和概率如下 奖品名 数量 中奖概率 北通鲲鹏游戏手柄 元京东卡 炫彩蛋 魔法粉尘 洛克贝 活动期间如发现恶意刷抽奖行为 游戏中心有权做封号处理 并取消获奖资格 如中奖信息内发现相",
@@ -2377,57 +2428,6 @@
   "noise_hint": [],
   "_vague_rule": false,
   "t1_source": "own_page_rule"
- },
- {
-  "game": "冒险岛：枫之传说",
-  "title": "冒险岛：枫之传说 活动",
-  "desc": "《冒险岛》3周年庆  《冒险岛》3周年庆 新页面 默认页面 背景图组件 定位容器 图片组件 腾讯游戏 切换账号 冒险岛 枫之传说 路西德上线 冒险岛三周年 活动 确认参与 互娱下载按钮 抽奖机会 确定 领奖 回归礼包 领取 成功 连登礼包 新版本注册礼包 回归 Q币 兑换资格 请前往 兑换吧 互娱隐形抽奖 手机 耳机 元京东卡 智能音响 谢谢参与 剩余 奖品概率 跳转 正在跳转 查询 积分 活动规则 活动时间 活动参与资格 活动期间进入活动页面的 游戏用户 活动玩法 活动期间 玩家在本页面完成任务 符合条件 即可获得对应的 或者礼包 活动所有奖励优先 先到先得 发完即止 玩家页面下载打开游戏 即可获得抽奖机会 总计 概率 京东卡 奖品发放与奖品说明 礼包发放方式为 发放至绑定的角色邮箱 每个游戏角色活动期间限领一次 每个 账号活动期间仅限参加一次 奖励发放方式为 需要玩家点击页面 前往微信小程序 登录需要领取 才会发放到指定的 号上 单个 单个类型奖励只会获得一次 若玩家存在切换账号重复领取 了到同一 视为非法刷奖 将不会到账 若玩家在其他平台领取过同类型奖励 也无法领取该奖励 实物奖",
-  "create": "2026-08-07T10:00:00+08:00",
-  "schema_start": "2026-08-07T10:00:00+08:00",
-  "start": "2026-08-12T00:00:00+08:00",
-  "end": "2026-09-13T23:59:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/GdTvHuXlzDhd0etr31tkpUPH/static/index.html?ht=1&isShowLoading=false&ls=2&__pf__=detail&__barStyle__=0_2&isGradualToolbar=false&isTranslucentBar=false&actId=20229694&channelName=game_detail_h5&adtag=",
-  "id": "20229694",
-  "kind": "real",
-  "reward": "Q币",
-  "noise_hint": [
-   "积分"
-  ],
-  "_vague_rule": false,
-  "t1_source": "own_page_rule"
- },
- {
-  "game": "完美世界",
-  "title": "完美世界 活动",
-  "desc": "《完美世界》全新资料片  《完美世界》全新资料片 新页面 默认页面 背景图组件 定位容器 图片组件 腾讯游戏 切换账号 完美世界 月掉宝资料片 确认参与 互娱下载按钮 领奖 注册礼包 领取 成功 签到第一天 签到第二天 签到第三天 签到第四天 签到第五天 签到第六天 签到第七天   兑换 充值返利抽奖 互娱 游戏中心 跳转 领奖记录 查询 哪吒 登顶 全球动画电影票房榜 哪吒之魔童闹海 哪吒敖丙喜感 复活 哪吒之魔童脑海 哪吒敖丙再续前缘 哪吒之魔童降世 全球百亿国产大片前作 我命由我不由天 活动规则 活动时间 活动参与资格 活动期间进入活动页面的 游戏用户 活动玩法 活动期间 玩家在本页面完成任务 符合条件 即可获得对应的 或者礼包 活动所有奖励优先 先到先得 发完即止 奖品发放与奖品说明 礼包发放方式为 发放至绑定的角色邮箱 每个游戏角色活动期间限领一次 每个 账号活动期间仅限参加一次 奖励发放方式为 需要玩家点击页面 前往微信小程序 登录需要领取 才会发放到指定的 号上 单个 单个类型奖励只会获得一次 若玩家存在切换账号重复领取 了到同一 视为非法刷奖 将不会到账 若玩家在其他平",
-  "create": "2026-07-15T00:00:00+08:00",
-  "schema_start": "2026-07-15T00:00:00+08:00",
-  "start": "2026-07-17T00:00:00+08:00",
-  "end": "2026-09-30T23:59:00+08:00",
-  "url": "https://ie-activity-cn.heytapimage.com/nvwa-static/sites/0wSjUzAZLfeR7Mvcj2bRjzWG/static/index.html?at=1&ta=0&ht=1&ts=1&isGradualToolbar=true&isTranslucentBar=true&fc=0&sc=0&isShowLoading=false&immersive=4&ls=3&__pf__=detail&__barStyle__=0_2&toolbarType=3",
-  "id": "ae50ff9c18ba7e3e",
-  "kind": "noise",
-  "reward": null,
-  "noise_hint": [
-   "签到"
-  ],
-  "_vague_rule": false,
-  "t1_source": "own_page_rule"
- },
- {
-  "game": "完美世界",
-  "title": "完美世界 活动",
-  "desc": "环境不支持 微信引导图",
-  "create": "",
-  "schema_start": "",
-  "start": "",
-  "end": "",
-  "url": "https://activity-cdo.heytapimage.com/cdo-activity/staticActivity/Xmo6rM/htmls/Xmo6rM.html?actId=59085&c=0&at=1&ta=0&c=0&ht=1&preload=1",
-  "id": "59085",
-  "kind": "noise",
-  "reward": null,
-  "noise_hint": [],
-  "_vague_rule": false
  },
  {
   "game": "新天龙八部手游",
