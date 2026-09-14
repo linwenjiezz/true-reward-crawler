@@ -50,10 +50,17 @@ def main():
     # 2) 生成雷达看板
     run_step("阶段二：生成雷达看板 radar_board.html", "radar_board_gen.py")
 
-    # 3) 自动打开
+    # 3) 自动打开（Windows 用 os.startfile，原生支持中文路径；
+    #    旧写法 webbrowser.open 拼 file:/// URL 不转义中文，会静默失败不弹浏览器）
     board = os.path.join(ASSETS, "radar_board.html")
     print("\n▶ 打开雷达页面：" + board)
-    webbrowser.open("file:///" + board.replace("\\", "/"))
+    try:
+        os.startfile(board)                       # Windows：系统默认浏览器打开
+    except AttributeError:                        # 非 Windows 系统
+        import pathlib
+        webbrowser.open(pathlib.Path(board).as_uri())
+    except OSError:
+        print("⚠ 浏览器自动打开失败，请手动双击 assets/radar_board.html 查看")
     print("\n🎉 全部完成！下次想刷新数据，重新运行本文件即可。")
 
 
