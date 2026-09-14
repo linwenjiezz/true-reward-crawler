@@ -94,14 +94,14 @@ def fetch_all():
         u = it.get("url") or it.get("pc_url") or ""
         if not u and it.get("id"):
             u = f"https://a.haohaowan.net/yxh-huodong-id-{it['id']}.html"
-        stime = datetime.fromtimestamp(int(it["stime"]), CN).strftime("%m-%d %H:%M") if it.get("stime") else ""
+        stime = datetime.fromtimestamp(int(it["stime"]), CN).strftime("%m-%d %H:%M:%S") if it.get("stime") else ""
         return {
             "title": it.get("title", ""),
             "desc": it.get("description", "") or it.get("desc", "") or "",
             # stime = API 上架时间（T0 源头痕迹），独立字段落表，任何后续校对不得修改
             "stime": stime,
             "start": stime,
-            "end": datetime.fromtimestamp(int(it["etime"]), CN).strftime("%m-%d %H:%M") if it.get("etime") else "",
+            "end": datetime.fromtimestamp(int(it["etime"]), CN).strftime("%m-%d %H:%M:%S") if it.get("etime") else "",
             "url": u,
         }
     out, seen_ids = [], set()
@@ -163,14 +163,14 @@ def fetch_all():
         u = it.get("url") or it.get("pc_url") or ""
         if not u and it.get("id"):
             u = f"https://a.haohaowan.net/yxh-huodong-id-{it['id']}.html"
-        stime = datetime.fromtimestamp(int(it["stime"]), CN).strftime("%m-%d %H:%M") if it.get("stime") else ""
+        stime = datetime.fromtimestamp(int(it["stime"]), CN).strftime("%m-%d %H:%M:%S") if it.get("stime") else ""
         return {
             "title": it.get("title", ""),
             "desc": it.get("description", "") or it.get("desc", "") or "",
             # stime = API 上架时间（T0 源头痕迹），独立字段落表，任何后续校对不得修改
             "stime": stime,
             "start": stime,
-            "end": datetime.fromtimestamp(int(it["etime"]), CN).strftime("%m-%d %H:%M") if it.get("etime") else "",
+            "end": datetime.fromtimestamp(int(it["etime"]), CN).strftime("%m-%d %H:%M:%S") if it.get("etime") else "",
             "url": u,
         }
     rows = [norm(it) for it in out]

@@ -132,6 +132,31 @@ def fmt_date(dt):
     return dt.strftime("%m-%d")
 
 
+_HAS_SEC_RE = re.compile(r"\d{1,2}:\d{2}:\d{2}")
+
+
+def sec_exact(raw):
+    """判断原始时间串是否带真实秒级精度。
+    - 4399 stime/etime 由 epoch 格式化为 %m-%d %H:%M:%S → 真秒级 ✅
+    - 快爆 slug 只有日期 → ❌
+    - 快爆/OPPO schema.js 的 ISO 串若是 T00:00:00 零点占位（日期级）→ ❌
+    - ISO 串带非零点时刻（如 T14:30:00）→ ✅
+    """
+    s = str(raw or "")
+    if not _HAS_SEC_RE.search(s):
+        return False
+    if "T00:00:00" in s:      # ISO 零点占位 = 日期级假秒
+        return False
+    return True
+
+
+def _t_display(dt, has_sec):
+    """T0/T1 显示：日期 + 精确到秒的时间；源数据抓不出秒级就标「无」。"""
+    if dt is None:
+        return "—"
+    return f"{fmt_date(dt)} {dt.strftime('%H:%M:%S') if has_sec else '无'}"
+
+
 def activity_id(rec):
     """生成活动唯一标识，优先使用 URL"""
     key = rec.get("url") or f"{rec.get('game','')}::{rec.get('channel','')}::{rec.get('title','')}"
@@ -166,8 +191,9 @@ def load_channel():
     hykb = json.load(open(ROOT / "_hykb_table_v3.json", encoding="utf-8"))
     for bucket in ("sept_real", "aug_real_running"):
         for r in hykb.get(bucket, []):
-            t0 = parse_hykb_slug_date(r.get("url", ""))
-            t1 = parse_time(r.get("start"))
+            t0_raw = parse_hykb_slug_date(r.get("url", ""))
+            t1_raw = r.get("start")
+            t1 = parse_time(t1_raw)
             t_end = parse_time(r.get("end"))
             records.append({
                 "game": r.get("game", ""),
@@ -175,9 +201,11 @@ def load_channel():
                 "title": r.get("title", ""),
                 "url": r.get("url", ""),
                 "reward": r.get("reward", ""),
-                "t0": parse_time(t0) if t0 else None,
+                "t0": parse_time(t0_raw) if t0_raw else None,
                 "t0_src": "URL建页期",
+                "t0_sec": sec_exact(t0_raw),   # slug 只有日期 → 恒为 False
                 "t1": t1,
+                "t1_sec": sec_exact(t1_raw),
                 "t_end": t_end,
             })
 
@@ -187,8 +215,10 @@ def load_channel():
         for r in t4399.get(bucket, []):
             # T0 = API stime（4399 自身边上线痕迹，绝不受校对影响）。
             # 详情页覆写过时间时 stime 存在 orig_start；未覆写时 start 本身就是 stime。
-            t0 = parse_time(r.get("orig_start") or r.get("stime") or r.get("start"))
-            t1 = parse_time(r.get("start"))
+            t0_raw = r.get("orig_start") or r.get("stime") or r.get("start")
+            t1_raw = r.get("start")
+            t0 = parse_time(t0_raw)
+            t1 = parse_time(t1_raw)
             t_end = parse_time(r.get("end"))
             records.append({
                 "game": r.get("game", ""),
@@ -198,7 +228,9 @@ def load_channel():
                 "reward": r.get("reward", ""),
                 "t0": t0,
                 "t0_src": "API stime",
+                "t0_sec": sec_exact(t0_raw),   # stime 由 epoch 带秒格式化 → 真秒级
                 "t1": t1,
+                "t1_sec": sec_exact(t1_raw),   # 未被详情页覆写时 = stime → 真秒级
                 "t_end": t_end,
             })
 
@@ -207,9 +239,11 @@ def load_channel():
     for bucket in ("sept_real", "aug_real_running"):
         for r in oppo.get(bucket, []):
             # T0 取值链：create（提前建页痕迹）> schema_start（schema.js 建页配置时间）> start（旧数据兜底）
-            t1 = parse_time(r.get("start"))
+            t1_raw = r.get("start")
+            t1 = parse_time(t1_raw)
             create = r.get("create")
             schema_start = r.get("schema_start")
+            t0_raw = create or schema_start or r.get("start")
             if create:
                 t0 = parse_time(create)
                 t0_src = "schema.js 提前建页"
@@ -232,8 +266,10 @@ def load_channel():
                 "reward": r.get("reward", ""),
                 "t0": t0,
                 "t0_src": t0_src,
+                "t0_sec": sec_exact(t0_raw),   # schema.js 为日期级 ISO（T00:00:00）→ 恒 False
                 "t1": t1,
                 "t1_src": t1_src,
+                "t1_sec": sec_exact(t1_raw),
                 "t_end": t_end,
             })
 
@@ -294,19 +330,20 @@ def _row_actions(r):
 
 
 def _times_html(r):
-    """分区行只显示白色 T1（速报区才显示紫色 T0）"""
-    t1s = fmt_date(r["t1"]) if r["t1"] else "—"
+    """分区行只显示白色 T1（速报区才显示紫色 T0）；有秒级精度带 HH:MM:SS，否则标「无」"""
+    t1s = _t_display(r["t1"], r.get("t1_sec"))
     return f'<span class="row-times"><span class="t1v">T1 {t1s}</span></span>'
 
 
 def _flash_row(r, extra):
     c = CHANNEL_COLORS.get(r["channel"], "#9aa0a6")
     cls = " extra hidden" if extra else ""
+    t0s = _t_display(r["t0"], r.get("t0_sec"))
     return f'''<div class="row flash-row{cls}">
         <span class="ch-dot" style="background:{c}"></span>
         <span class="row-game">{html.escape(r["game"])}</span>
         <span class="row-title"><span class="row-title-text">{html.escape(r["title"])}</span></span>
-        <span class="row-times"><span class="t0v">T0 {fmt_date(r["t0"]) if r["t0"] else "—"}</span></span>
+        <span class="row-times"><span class="t0v">T0 {t0s}</span></span>
         {_row_actions(r)}
     </div>'''
 

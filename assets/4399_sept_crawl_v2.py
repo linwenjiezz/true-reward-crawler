@@ -17,9 +17,12 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 
 import os
-import sys as _sys
-_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # 依赖模块与本脚本同目录（可移植）
-os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 输出文件固定落在脚本目录
+import sys
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, _SCRIPT_DIR)  # 依赖模块与本脚本同目录（可移植）
+_DATA = os.environ.get("RADAR_DATA", _SCRIPT_DIR)  # 手机端→可写外部存储；桌面→脚本目录
+os.makedirs(_DATA, exist_ok=True)
+os.chdir(_DATA)  # 输出文件固定落在数据目录
 from reward_classify import reward_kind, matched_noise, title_noise
 
 CN = timezone(timedelta(hours=8))
@@ -91,14 +94,14 @@ def fetch_all():
         u = it.get("url") or it.get("pc_url") or ""
         if not u and it.get("id"):
             u = f"https://a.haohaowan.net/yxh-huodong-id-{it['id']}.html"
-        stime = datetime.fromtimestamp(int(it["stime"]), CN).strftime("%m-%d %H:%M") if it.get("stime") else ""
+        stime = datetime.fromtimestamp(int(it["stime"]), CN).strftime("%m-%d %H:%M:%S") if it.get("stime") else ""
         return {
             "title": it.get("title", ""),
             "desc": it.get("description", "") or it.get("desc", "") or "",
             # stime = API 上架时间（T0 源头痕迹），独立字段落表，任何后续校对不得修改
             "stime": stime,
             "start": stime,
-            "end": datetime.fromtimestamp(int(it["etime"]), CN).strftime("%m-%d %H:%M") if it.get("etime") else "",
+            "end": datetime.fromtimestamp(int(it["etime"]), CN).strftime("%m-%d %H:%M:%S") if it.get("etime") else "",
             "url": u,
         }
     out, seen_ids = [], set()
@@ -160,14 +163,14 @@ def fetch_all():
         u = it.get("url") or it.get("pc_url") or ""
         if not u and it.get("id"):
             u = f"https://a.haohaowan.net/yxh-huodong-id-{it['id']}.html"
-        stime = datetime.fromtimestamp(int(it["stime"]), CN).strftime("%m-%d %H:%M") if it.get("stime") else ""
+        stime = datetime.fromtimestamp(int(it["stime"]), CN).strftime("%m-%d %H:%M:%S") if it.get("stime") else ""
         return {
             "title": it.get("title", ""),
             "desc": it.get("description", "") or it.get("desc", "") or "",
             # stime = API 上架时间（T0 源头痕迹），独立字段落表，任何后续校对不得修改
             "stime": stime,
             "start": stime,
-            "end": datetime.fromtimestamp(int(it["etime"]), CN).strftime("%m-%d %H:%M") if it.get("etime") else "",
+            "end": datetime.fromtimestamp(int(it["etime"]), CN).strftime("%m-%d %H:%M:%S") if it.get("etime") else "",
             "url": u,
         }
     rows = [norm(it) for it in out]
